@@ -4,6 +4,7 @@ rxList = []
 ryList = []
 status = []
 over = False
+clear = False
 
 def setup():
     global px, py, ps, rxList, ryList, status
@@ -17,7 +18,7 @@ def setup():
         status.append(False)
 
 def draw():
-    global px, py, ps, sx, sy, rxList, ryList, status, over
+    global px, py, ps, sx, sy, rxList, ryList, status, over, clear
     rs = 100
     background(255)
     for i in range(6):
@@ -33,6 +34,12 @@ def draw():
         textSize(50)
         textAlign(CENTER)
         text("GAME OVER", width/2, height/2)
+        return
+
+    if clear:
+        textSize(50)
+        textAlign(CENTER)
+        text("GAME CLEAR", width/2, height/2)
         return
 
     if keyPressed:
@@ -57,3 +64,10 @@ def draw():
 
     if px < ps/2 or px > (width-ps/2) or py < ps/2 or py > (height-ps/2):
         over = True
+
+    count = 0
+    for i in range(6):
+        if status[i]:
+            count = count + 1 # count+=1, count++
+    if count == 6:
+        clear = True
