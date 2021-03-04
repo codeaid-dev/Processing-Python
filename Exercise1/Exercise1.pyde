@@ -5,6 +5,7 @@ ryList = []
 status = []
 over = False
 clear = False
+limitBar = 600
 
 def setup():
     global px, py, ps, rxList, ryList, status
@@ -18,7 +19,7 @@ def setup():
         status.append(False)
 
 def draw():
-    global px, py, ps, sx, sy, rxList, ryList, status, over, clear
+    global px, py, ps, sx, sy, rxList, ryList, status, over, clear, limitBar
     rs = 100
     background(255)
     for i in range(6):
@@ -27,6 +28,13 @@ def draw():
         else:
             fill(255)
         rect(rxList[i], ryList[i], rs, rs)
+
+    fill("#FFC400")
+    rect(0, 0, limitBar, 30)
+    limitBar -= 0.5
+    if limitBar <= 0:
+        over = True
+
     fill(0)
     ellipse(px, py, ps, ps)
 
