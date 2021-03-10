@@ -56,6 +56,7 @@ def draw():
             text(result, 300, 300)
 
 def judge():
+    # 同じ柄が並んでいるか確認
     global tiles, status, turn
     if (not tiles[0] == None and tiles[0] == tiles[1] and tiles[0] == tiles[2]) \
     or (not tiles[3] == None and tiles[3] == tiles[4] and tiles[3] == tiles[5]) \
