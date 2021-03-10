@@ -75,6 +75,7 @@ def judge():
     return None
 
 def getID():
+    # 左上0番目～右下8番目
     if mouseX > 0 and mouseX < 200 and mouseY > 0 and mouseY < 200: #0番目
         return 0
     if mouseX > 200 and mouseX < 400 and mouseY > 0 and mouseY < 200: #1番目
