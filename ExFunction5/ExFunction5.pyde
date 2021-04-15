@@ -1,11 +1,13 @@
+move = 1
+x = 100
 def setup():
-    size(500, 500)
+    size(500, 200)
 
 def draw():
+    global move, x
+    x += move
     background(255)
-    x, y = mouseX, mouseY
-    mato(x-70, y, 100)
-    mato(x+70, y, 100)
+    mato(x, height/2, 100)
 
 def mato(x, y, w):
     fill(255)
