@@ -1,12 +1,9 @@
 def setup():
-    size(500, 200)
-    textSize(50)
-    
+    size(500, 500)
+
 def draw():
-    background(0)
-    textAlign(LEFT)
-    text("key=", 50, 100)
-    text("keyCode=", 50, 150)
-    textAlign(RIGHT)
-    text(key, 400, 100)
-    text(keyCode, 400, 150)
+    background(255)
+    line(mouseX, mouseY, width/4, height/2)
+    line(mouseX, mouseY, width/2, height/4)
+    line(mouseX, mouseY, width/4*3, height/2)
+    line(mouseX, mouseY, width/2, height/4*3)
