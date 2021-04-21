@@ -1,26 +1,23 @@
-xList = []
-yList = []
-s = 30
-atari = 0
-clear = False
+x, y = [], []
+dx, dy = [], []
 
 def setup():
-    global xList, yList, s, atari
-    size(450, 450)
-    for i in range(225):
-        xList.append(s * (i % 15))
-        yList.append(s * (i / 15))
-    atari = int(random(225))
+    global x, y, dx, dy
+    size(500, 500)
+    for i in range(3):
+        x.append(250)
+        y.append(250)
+        dx.append(random(1,4))
+        dy.append(random(1,4))
 
 def draw():
-    global xList, yList, s, atari, clear
-    for i in range(225):
-        if i == atari and clear:
-            fill(255, 0, 0)
-        else:
-            fill(255)
-        rect(xList[i], yList[i], s, s)
-
-    if mousePressed:
-        if mouseX < xList[atari] + s and mouseX > xList[atari] and mouseY < yList[atari] + s and mouseY > yList[atari]:
-            clear = True
+    global x, y, dx, dy
+    background(0)
+    for i in range(3):
+        x[i] += dx[i]
+        y[i] += dy[i]
+        if x[i] > width or x[i] < 0:
+            dx[i] *= -1
+        if y[i] > height or y[i] < 0:
+            dy[i] *= -1
+        ellipse(x[i], y[i], 30, 30)
