@@ -1,14 +1,16 @@
+x = 50
+move = 1
+
 def setup():
-    size(500, 500)
+    size(600, 200)
 
 def draw():
-    background(0)
-    if mouseX < width/2 and mouseY < height/2:
-        fill(255, 0, 0)
-    elif mouseX < width/2 and mouseY > height/2:
-        fill(0, 255, 0)
-    elif mouseX > width/2 and mouseY < height/2:
-        fill(0, 0, 255)
-    else:
-        fill(255, 255, 0)
-    ellipse(mouseX, mouseY, 50, 50)
+    global x, move
+    background(255)
+    fill(0)
+    x += move
+    if x >= width-50:
+        move = -1
+    if x-50 <= 0:
+        move = 1
+    ellipse(x, 100, 100, 100)

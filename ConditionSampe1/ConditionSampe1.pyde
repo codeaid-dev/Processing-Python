@@ -1,16 +1,13 @@
 x = 50
-move = 1
 
 def setup():
     size(600, 200)
 
 def draw():
-    global x, move
+    global x
     background(255)
     fill(0)
-    x += move
+    x += 1
     if x >= width-50:
-        move = -1
-    if x-50 <= 0:
-        move = 1
+        x = width-50
     ellipse(x, 100, 100, 100)
