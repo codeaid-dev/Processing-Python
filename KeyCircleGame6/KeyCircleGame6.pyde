@@ -29,12 +29,6 @@ def draw():
             fill(255)
         rect(rxList[i], ryList[i], rs, rs)
 
-    fill("#FFC400")
-    rect(0, 0, limitBar, 30)
-    limitBar -= 1.5
-    if limitBar <= 0:
-        over = True
-
     fill(0)
     ellipse(px, py, ps, ps)
 
@@ -79,3 +73,9 @@ def draw():
             count = count + 1
     if count == 6:
         clear = True
+
+    fill("#FFC400")
+    rect(0, 0, limitBar, 30)
+    limitBar -= 1.5
+    if limitBar <= 0:
+        over = True
