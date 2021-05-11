@@ -2,19 +2,12 @@ x, y = 0, 0
 k = 0
 
 def setup():
-    size(300, 300)
+    size(500, 500)
     background(0)
+    fill(255, 255, 0)
 
 def draw():
-    global k
-    if k == 'r':
-        fill(255, 0, 0)
-    elif k == 'g':
-        fill(0, 255, 0)
-    elif k == 'b':
-        fill(0, 0, 255)
-    else:
-        fill(255, 255, 0)
+    pass
 
 def mousePressed():
     global x, y
@@ -30,10 +23,10 @@ def keyPressed():
     if key == 'c':
         background(0)
     if key == 'r':
-        k = 'r'
+        fill(255, 0, 0)
     elif key == 'g':
-        k = 'g'
+        fill(0, 255, 0)
     elif key == 'b':
-        k = 'b'
+        fill(0, 0, 255)
     else:
-        k = 0
+        fill(255, 255, 0)
