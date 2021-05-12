@@ -1,29 +1,44 @@
-xList = [None, None, None, None]
-yList = [None, None, None, None]
-atari = 0
+places = []
+cnt = 0
+status = []
 
 def setup():
-    global atari
-    size(600, 400)
-    atari = int(random(4))
+    global places, cnt, status
+    size(600, 200)
+    cnt = int(random(1,11))
+    for i in range(cnt):
+        work = [None,None,None]
+        if int(random(2)) % 2 == 0:
+            work[2] = -int(random(1,11))
+        else:
+            work[2] = int(random(1,11))
+        work[0] = width/2
+        work[1] = random(height)
+        places.append(work)
+        status.append(0)
 
 def draw():
-    global xList, yList, atari
+    global places, cnt, status
     background(255)
-    fill(0)
-    rectMode(CENTER)
-    for i in range(4):
-        xList[i] = 90 + 140 * (i % 4)
-        yList[i] = 200
-        rect(xList[i], yList[i], 100, 100)
+    for i in range(cnt):
+        if status[i] == 1:
+            fill(255,0,0)
+        else:
+            fill(255)
+        ellipse(places[i][0], places[i][1], 50, 50)
+        places[i][0] += places[i][2]
+        if places[i][0] < 25 or places[i][0] > 575:
+            places[i][2] *= -1
 
     if mousePressed:
-        if mouseX < xList[atari] + 50 and mouseX > xList[atari] - 50 \
-        and mouseY < yList[atari] + 50 and mouseY > yList[atari] - 50:
-            textSize(50)
-            textAlign(CENTER)
-            text("Atari", width/2, 100)
-        else:
-            textSize(50)
-            textAlign(CENTER)
-            text("Hazure", width/2, 100)
+        isHit()
+
+def isHit():
+    global places, cnt, status
+    for i in range(cnt):
+        dis = dist(mouseX, mouseY, places[i][0], places[i][1])
+        if dis < 25:
+            places[i][2] = 0
+            status[i] = 1
+            return True
+    return False
