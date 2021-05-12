@@ -9,7 +9,7 @@ def setup():
     for i in range(count):
         starX.append(random(width))
         starY.append(random(height))
-        speed.append(random(5)+1)
+        speed.append(random(1,6))
 
 def draw():
     global count, speed, starX, starY
