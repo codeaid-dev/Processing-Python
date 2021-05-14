@@ -8,7 +8,7 @@ def setup():
     cnt = int(random(1,11))
     for i in range(cnt):
         work = [None,None,None]
-        if int(random(2)) % 2 == 0:
+        if int(random(2)) == 0:
             work[2] = -int(random(1,11))
         else:
             work[2] = int(random(1,11))
