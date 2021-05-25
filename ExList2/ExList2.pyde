@@ -12,7 +12,7 @@ def draw():
 
 def mouseClicked():
     for i in range(3):
-        if i*(s+m)+m < mouseX < i*(s+m)+m+s:
+        if i*(s+m)+m < mouseX < i*(s+m)+m+s and m < mouseY < m+s:
             if i == atari:
                 colors[i] = [255,0,0]
             else:
