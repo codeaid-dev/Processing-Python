@@ -2,7 +2,7 @@ player = None
 enemy = []
 count = 0
 status = 0
-class Circle():
+class Circle:
     pass
 
 def setup():
