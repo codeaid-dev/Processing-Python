@@ -1,25 +1,20 @@
-x1,y1,x2,y2 = 100,100,400,400
-dx1,dy1,dx2,dy2 = 2,3,2,3
-
 def setup():
-    size(500,500)
-    strokeWeight(5)
-    stroke(255)
+    size(500, 500)
 
 def draw():
-    global x1,y1,x2,y2,dx1,dy1,dx2,dy2
     background(0)
-    x1 += dx1
-    y1 += dy1
-    x2 += dx2
-    y2 += dy2
-    if x1 > width or x1 < 0:
-        dx1 *= -1
-    if x2 > width or x2 < 0:
-        dx2 *= -1
-    if y1 > width or y1 < 0:
-        dy1 *= -1
-    if y2 > width or y2 < 0:
-        dy2 *= -1
-
-    line(x1, y1, x2, y2)
+    fill(128)
+    rect(width/4, height/4, width/2, height/2)
+    stroke(255)
+    if mousePressed:
+        if mouseX > width/4 and mouseX < width/4*3 and mouseY > height/4 and mouseY < height/4*3:
+            fill(255, 0, 0)
+        else:
+            fill(0, 255, 0)
+    else:
+        noFill()
+    ellipse(mouseX, mouseY, 50, 50)
+    noFill()
+    ellipse(mouseX, mouseY, 20, 20)
+    line(0, mouseY, width, mouseY)
+    line(mouseX, 0, mouseX, height)

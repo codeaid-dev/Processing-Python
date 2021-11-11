@@ -1,20 +1,12 @@
+s = 20
+cs = 3
 def setup():
     size(500, 500)
 
 def draw():
+    global s, cs
     background(0)
-    fill(128)
-    rect(width/4, height/4, width/2, height/2)
-    stroke(255)
-    if mousePressed:
-        if mouseX > width/4 and mouseX < width/4*3 and mouseY > height/4 and mouseY < height/4*3:
-            fill(255, 0, 0)
-        else:
-            fill(0, 255, 0)
-    else:
-        noFill()
-    ellipse(mouseX, mouseY, 50, 50)
-    noFill()
-    ellipse(mouseX, mouseY, 20, 20)
-    line(0, mouseY, width, mouseY)
-    line(mouseX, 0, mouseX, height)
+    s += cs
+    if s > width or s < 0:
+        cs *= -1
+    ellipse(width/2, height/2, s, s)

@@ -1,12 +1,17 @@
-s = 20
-cs = 3
+x, y = 250, 250
+dx, dy = 1, 2
+
 def setup():
     size(500, 500)
 
 def draw():
-    global s, cs
+    global x, y, dx, dy
     background(0)
-    s += cs
-    if s > width or s < 0:
-        cs *= -1
-    ellipse(width/2, height/2, s, s)
+    x += dx
+    y += dy
+    if x > width or x < 0:
+        dx *= -1
+    if y > height or y < 0:
+        dy *= -1
+
+    ellipse(x, y, 30, 30)
