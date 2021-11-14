@@ -1,10 +1,9 @@
-size(600, 400)
-w = 600
-h = 400
-fill(255)
-rect(0, 0, w, h)
-noStroke()
-fill(0, 0, 200)
-rect(0, 0, w/3, h)
-fill(200, 0, 0)
-rect(w/3*2, 0, w/3, h)
+size(600,300)
+x = 60
+y = 150
+d = 120
+ellipse(x, y, d, d)
+ellipse(x+120, y, d, d)
+ellipse(x+240, y, d, d)
+ellipse(x+360, y, d, d)
+ellipse(x+480, y, d, d)
