@@ -1,5 +1,5 @@
 x, y = 250, 250
-dx, dy = 1, 2
+dx, dy = 2, 3
 
 def setup():
     size(500, 500)
@@ -9,9 +9,9 @@ def draw():
     background(0)
     x += dx
     y += dy
-    if x > width or x < 0:
+    if x+25 > width or x-25 < 0:
         dx *= -1
-    if y > height or y < 0:
+    if y+25 > height or y-25 < 0:
         dy *= -1
 
-    ellipse(x, y, 30, 30)
+    ellipse(x, y, 50, 50)
