@@ -8,13 +8,6 @@ def setup():
 def draw():
     background(255)
     for i in range(5):
-        if mousePressed:
-            dst = dist(mouseX,mouseY,x[i],y[i])
-            if dst<25:
-                fill(255,0,0)
-            else:
-                fill(0)
-        else:
-            fill(0)
+        fill(0)
         ellipse(x[i],y[i],50,50)
     

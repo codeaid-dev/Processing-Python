@@ -9,9 +9,9 @@ def draw():
     background(0)
     x += dx
     y += dy
-    if 60+x > width or x < 0:
+    if x+75 > width or x-15 < 0:
         dx *= -1
-    if y > height or y < 0:
+    if y+15 > height or y-15 < 0:
         dy *= -1
 
     for i in range(3):

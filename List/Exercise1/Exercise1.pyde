@@ -1,11 +1,7 @@
-seasons = ['Spring','Summer','Autumn','Winter']
-
 def setup():
-    size(600,400)
-    textSize(30)
-    fill(0)
+    size(500,500)
 
 def draw():
-    background(255)
-    for i in range(len(seasons)):
-        text(seasons[i],i*width/4+30,(i+1)*height/4-50)
+    en = [[450,50],[350,150],[250,250],[150,350],[50,450]]
+    for d in en:
+        ellipse(d[0],d[1],50,50)
