@@ -1,18 +1,12 @@
 def setup():
-    size(900, 300)
+    size(300, 550)
 
 def draw():
-    background(255)
-    stroke(0)
-    strokeWeight(300)
-    line(150,150,750,150)
+    background(0)
     noStroke()
-    if mouseX > width/3*2:
+    if mouseY < height/2:
         fill(255, 0, 0)
-        ellipse(width/6*5, height/2, 250, 250)
-    elif mouseX > width/3:
-        fill(255, 255, 0)
-        ellipse(width/6*3, height/2, 250, 250)
+        rect(50, 50, 200, 200)
     else:
         fill(0, 255, 0)
-        ellipse(width/6, height/2, 250, 250)
+        rect(50, 300, 200, 200)

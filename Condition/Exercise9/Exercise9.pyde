@@ -1,25 +1,30 @@
-x1,y1,x2,y2 = 100,100,400,400
-dx1,dy1,dx2,dy2 = 2,3,2,3
+x, y = 250, 250
+dx, dy = 2, 3
 
 def setup():
-    size(500,500)
-    strokeWeight(5)
-    stroke(255)
+    size(500, 500)
 
 def draw():
-    global x1,y1,x2,y2,dx1,dy1,dx2,dy2
+    global x, y, dx, dy
     background(0)
-    x1 += dx1
-    y1 += dy1
-    x2 += dx2
-    y2 += dy2
-    if x1 > width or x1 < 0:
-        dx1 *= -1
-    if x2 > width or x2 < 0:
-        dx2 *= -1
-    if y1 > width or y1 < 0:
-        dy1 *= -1
-    if y2 > width or y2 < 0:
-        dy2 *= -1
+    x += dx
+    y += dy
+    if x+25 > width or x-25 < 0:
+        dx *= -1
+    if y+25 > height or y-25 < 0:
+        dy *= -1
 
-    line(x1, y1, x2, y2)
+    if x>0 and x<width/2 and \
+         y>0 and y<height/2:
+        fill(255,0,0)
+    elif x>width/2 and x<width and \
+        y>0 and y<height/2:
+        fill(0,255,0)
+    elif x>0 and x<width/2 and \
+        y>height/2 and y<height:
+        fill(255,255,0)
+    elif x>width/2 and x<width and \
+        y>height/2 and y<height:
+        fill(0,0,255)
+
+    ellipse(x, y, 50, 50)
