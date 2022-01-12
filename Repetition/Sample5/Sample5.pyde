@@ -1,13 +1,12 @@
 def setup():
-    size(700, 700)
+    size(500, 500)
 
 def draw():
     background(255)
-    noStroke()
-    rectMode(CENTER)
-    for i in range(10):
-        for j in range(10):
+    for i in range(9):
+        for j in range(9):
+            textAlign(CENTER)
+            textSize(20)
             fill(0)
-            x = 80 + 60 * i
-            y = 80 + 60 * j
-            rect(x, y, 50, 50)
+            ans = (i+1)*(j+1)
+            text(ans, 50+j*width/10, 50+i*height/10)

@@ -1,8 +1,10 @@
 def setup():
-    size(600, 400)
-    noStroke()
+    size(255,255)
 
 def draw():
-    for i in range(20):
-        fill(i*12, mouseX/3, 255)
-        rect(30*i, 0, 30, 400)
+    background(255)
+    w = width
+    while w>0:
+        fill(w)
+        ellipse(width/2,height/2,w,w)
+        w -= 25

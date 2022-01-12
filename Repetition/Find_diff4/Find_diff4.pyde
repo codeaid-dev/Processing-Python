@@ -1,6 +1,5 @@
 r, g, b = 0, 0, 0
 a, atari = 0, 0
-hit = False
 
 def setup():
     global r, g, b, a, atari
@@ -12,7 +11,6 @@ def setup():
     atari = int(random(0, 100))
 
 def draw():
-    global r, g, b, a, atari, hit
     background(255)
     noStroke()
     rectMode(CENTER)
@@ -24,15 +22,3 @@ def draw():
         x = 80 + 60 * (i % 10)
         y = 80 + 60 * (i / 10)
         rect(x, y, 50, 50)
-
-    if hit:
-        fill(0)
-        textSize(32)
-        textAlign(CENTER)
-        text("Hit!!", width/2, 40)
-
-    if mousePressed:
-        atariX = 80 + 60 * (atari % 10)
-        atariY = 80 + 60 * (atari / 10)
-        if mouseX > atariX -25 and mouseX < atariX + 25 and mouseY > atariY -25 and mouseY < atariY + 25:
-            hit = True
