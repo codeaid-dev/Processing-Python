@@ -1,33 +1,21 @@
-count = 100
-xList = []
-yList = []
-statusList = []
-sizeList = []
-colorList = []
+ens = []
+count = 0
 
 def setup():
-    global count, xList, yList, sizeList, colorList
     size(600, 400)
-    for i in range(count):
-        xList.append(0)
-        yList.append(random(height))
-        statusList.append(0)
-        sizeList.append(random(10,30))
-        colorList.append([random(256),random(256),random(256)])
 
 def draw():
-    global count, xList, yList, sizeList, colorList
     background(0)
-    for i in range(count):
-        if statusList[i] == 1:
-            xList[i] += 1
-            noStroke()
-            fill(colorList[i][0],colorList[i][1],colorList[i][2])
-            ellipse(xList[i], yList[i], sizeList[i], sizeList[i])
+    for p in ens:
+        p[0] += 1
+        noStroke()
+        fill(p[3][0],p[3][1],p[3][2])
+        ellipse(p[0],p[1],p[2],p[2])
 
-def mouseClicked():
-    global count, statusList
-    for i in range(count):
-        if statusList[i] == 0:
-            statusList[i] = 1
-            break
+def mousePressed():
+    global ens,count
+    if count < 50:
+        en = [0,random(height),random(10,30)]
+        en.append([random(256),random(256),random(256)])
+        ens.append(en)
+        count += 1
