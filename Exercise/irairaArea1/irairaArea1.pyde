@@ -3,9 +3,6 @@ class Circle:
         self.x = x
         self.y = y
         self.s = s
-        self.dx = 0
-        self.dy = 0
-        self.goal = False
 
     def display(self,c):
         fill(c)

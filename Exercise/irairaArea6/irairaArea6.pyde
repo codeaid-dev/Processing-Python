@@ -34,7 +34,7 @@ def setup():
         walls.append(w)
 
 def draw():
-    global over,clear
+    global over,clear,time
     background(255)
     noStroke()
     for w in walls:
@@ -54,20 +54,8 @@ def draw():
         return
     time = frameCount/60
 
-    if keyPressed:
-        if keyCode == LEFT:
-            player.dx -= 0.1
-        if keyCode == RIGHT:
-            player.dx += 0.1
-        if keyCode == UP:
-            player.dy -= 0.1
-        if keyCode == DOWN:
-            player.dy += 0.1
-
-    player.dx *= 0.98
-    player.dy *= 0.98
-    player.x += player.dx
-    player.y += player.dy
+    player.x = mouseX
+    player.y = mouseY
 
     for w in walls:
         if w.is_hit(player):
