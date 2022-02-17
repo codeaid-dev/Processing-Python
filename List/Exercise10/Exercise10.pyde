@@ -6,11 +6,11 @@ def setup():
 
 def draw():
     background(0)
-    for p in ens:
-        p[0] += 1
+    for p in range(len(ens)):
+        ens[p][0] += 1
         noStroke()
-        fill(p[3][0],p[3][1],p[3][2])
-        ellipse(p[0],p[1],p[2],p[2])
+        fill(ens[p][3][0],ens[p][3][1],ens[p][3][2])
+        ellipse(ens[p][0],ens[p][1],ens[p][2],ens[p][2])
 
 def mousePressed():
     global ens,count
