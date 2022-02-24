@@ -8,7 +8,7 @@ clear = False
 limitBar = 600
 
 def setup():
-    global px, py, ps, rxList, ryList, status
+    global px, py, ps
     size(600, 500)
     px = width/2
     py = height/2
@@ -19,7 +19,7 @@ def setup():
         status.append(False)
 
 def draw():
-    global px, py, ps, sx, sy, rxList, ryList, status, over, clear, limitBar
+    global px, py, ps, sx, sy, over, clear, limitBar
     rs = 100
     background(255)
     for i in range(6):

@@ -10,7 +10,7 @@ class Circle:
 
 player = None
 def setup():
-    global player,walls
+    global player
     size(600,400)
     player = Circle(60,60,30)
 

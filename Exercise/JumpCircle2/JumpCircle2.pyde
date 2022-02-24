@@ -4,7 +4,6 @@ hx,hy,hs = [],[],[]
 hc = 5
 
 def setup():
-    global hx,hy,hs
     size(600,400)
     for i in range(hc):
         hx.append(random(width,width*2))

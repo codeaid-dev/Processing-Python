@@ -10,7 +10,7 @@ def setup():
     atari = int(random(4))
 
 def draw():
-    global xList, yList, atari, gameOver, gameClear
+    global gameOver, gameClear
     background(255)
     fill(0)
     rectMode(CENTER)

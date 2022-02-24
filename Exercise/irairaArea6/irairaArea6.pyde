@@ -20,7 +20,7 @@ walls = []
 over,clear = False,False
 time = 0
 def setup():
-    global player,walls,time
+    global player
     size(600,400)
     player = Circle(60,60,30)
     goal = int(random(54))

@@ -6,7 +6,7 @@ status = []
 over = False
 
 def setup():
-    global px, py, ps, rxList, ryList, status
+    global px, py, ps
     size(600, 500)
     px = width/2
     py = height/2
@@ -17,7 +17,7 @@ def setup():
         status.append(False)
 
 def draw():
-    global px, py, ps, sx, sy, rxList, ryList, status, over
+    global px, py, ps, sx, sy, over
     rs = 100
     background(255)
     for i in range(6):

@@ -3,7 +3,6 @@ cnt = 8
 status = []
 
 def setup():
-    global places, cnt, status
     size(600, 200)
     for i in range(cnt):
         work = [None,None,None]
@@ -17,7 +16,6 @@ def setup():
         status.append(0)
 
 def draw():
-    global places, cnt, status
     background(255)
     for i in range(cnt):
         if status[i] == 1:
@@ -33,7 +31,7 @@ def draw():
         isHit()
 
 def isHit():
-    global places, cnt, status
+    #global places, status
     for i in range(cnt):
         dis = dist(mouseX, mouseY, places[i][0], places[i][1])
         if dis < 25:

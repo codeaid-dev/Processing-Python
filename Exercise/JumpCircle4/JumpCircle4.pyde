@@ -8,7 +8,6 @@ over = False
 time = 0
 
 def setup():
-    global hx,hy,hs,status
     size(600,400)
     for i in range(hc):
         hx.append(random(width,width*2))

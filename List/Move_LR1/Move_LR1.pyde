@@ -2,7 +2,6 @@ places = []
 cnt = 8
 
 def setup():
-    global places, cnt
     size(600, 200)
     for i in range(cnt):
         work = [None,None,None]
@@ -15,7 +14,6 @@ def setup():
         places.append(work)
 
 def draw():
-    global places, cnt
     background(255)
     for i in range(cnt):
         ellipse(places[i][0], places[i][1], 50, 50)

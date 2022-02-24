@@ -5,7 +5,7 @@ def setup():
     size(600, 400)
 
 def draw():
-    global xList, yList
+    #global xList, yList
     background(255)
     fill(0)
     rectMode(CENTER)

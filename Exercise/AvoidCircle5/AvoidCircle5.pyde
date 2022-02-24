@@ -6,7 +6,7 @@ def setup():
     size(500,800)
     noStroke()
 def draw():
-    global x,y,block_x,block_y,block_size,over,time
+    global x,y,over,time
     background(255)
 
     if over:

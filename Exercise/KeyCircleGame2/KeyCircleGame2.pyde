@@ -4,7 +4,7 @@ rxList = []
 ryList = []
 
 def setup():
-    global px,py,ps,rxList,ryList
+    global px,py,ps
     size(600, 500)
     px = width/2
     py = height/2
@@ -14,7 +14,7 @@ def setup():
         ryList.append(75+250*(i/3))
 
 def draw():
-    global px,py,ps,sx,sy,rxList,ryList
+    global px,py,ps,sx,sy
     rs = 100
     background(255)
 

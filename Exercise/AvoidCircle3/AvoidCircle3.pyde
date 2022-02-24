@@ -4,7 +4,7 @@ def setup():
     size(500,800)
     noStroke()
 def draw():
-    global x,y,block_x,block_y,block_size
+    global x,y
     background(255)
 
     fill(0,0,255)

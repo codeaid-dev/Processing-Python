@@ -1,23 +1,18 @@
 count = 100
-speed = 1
 starX = []
 starY = []
+starS = []
 
 def setup():
-    global count, speed, starX, starY
     size(600, 400)
     for i in range(count):
         starX.append(random(width))
         starY.append(random(height))
+        starS.append(random(1,6))
 
 def draw():
-    global count, speed, starX, starY
     background(0)
     for i in range(count):
-        x = starX[i]
-        x = x - speed
-        if x < 0:
-            x = width
-        starX[i] = x
+        starX[i] -= starS[i]
         noStroke()
-        ellipse(starX[i], starY[i], 5, 5)
+        ellipse(starX[i], starY[i], starS[i], starS[i])
