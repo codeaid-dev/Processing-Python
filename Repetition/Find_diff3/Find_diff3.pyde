@@ -10,9 +10,8 @@ def setup():
 def draw():
     background(255)
     noStroke()
-    rectMode(CENTER)
     for i in range(100):
         fill(r, g, b)
-        x = 80 + 60 * (i % 10)
-        y = 80 + 60 * (i / 10)
+        x = 55 + 60 * (i % 10)
+        y = 55 + 60 * (i / 10)
         rect(x, y, 50, 50)
