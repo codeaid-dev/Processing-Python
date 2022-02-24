@@ -1,19 +1,18 @@
-x,y = 250,250
-speed = 3
+x,y=0,0
+s=50
 def setup():
+    global x,y
     size(500,500)
+    x = random(0,width-s)
+    y = random(0,height-s)
 
 def draw():
     global x,y
     background(255)
-    if keyPressed:
-        if keyCode == LEFT:
-            x -= speed
-        elif keyCode == RIGHT:
-            x += speed
-        elif keyCode == UP:
-            y -= speed
-        elif keyCode == DOWN:
-            y += speed
+    if mouseX>x and mouseX<x+s and mouseY>y and mouseY<y+s:
+        x = random(0,width-s)
+        y = random(0,height-s)
+
     fill(0)
-    ellipse(x,y,50,50)
+    rect(x,y,s,s)
+    

@@ -12,7 +12,7 @@ def draw():
         ellipse(ens[p][0], ens[p][1], 20, 20)
 
 def mousePressed():
-    global ens,count
+    global count
     if count < 50:
         en = [0,random(height)]
         ens.append(en)

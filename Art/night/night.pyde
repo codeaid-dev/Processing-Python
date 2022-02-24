@@ -1,6 +1,5 @@
 x,y,s=[],[],[]
 def setup():
-    global x,y,s
     size(500,500)
     for i in range(200):
         x.append(random(width))
@@ -8,7 +7,6 @@ def setup():
         s.append(random(0.1,2.0))
 
 def draw():
-    global x
     strokeWeight(2)
     for i in range(250):
         stroke(i)

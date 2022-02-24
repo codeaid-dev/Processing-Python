@@ -2,7 +2,6 @@ x, y = [], []
 dx, dy = [], []
 
 def setup():
-    global x, y, dx, dy
     size(500, 500)
     for i in range(3):
         x.append(250)
@@ -11,13 +10,12 @@ def setup():
         dy.append(random(1,4))
 
 def draw():
-    global x, y, dx, dy
     background(0)
     for i in range(3):
         x[i] += dx[i]
         y[i] += dy[i]
-        if x[i] > width or x[i] < 0:
+        if x[i] > width-15 or x[i] < 15:
             dx[i] *= -1
-        if y[i] > height or y[i] < 0:
+        if y[i] > height-15 or y[i] < 15:
             dy[i] *= -1
         ellipse(x[i], y[i], 30, 30)
