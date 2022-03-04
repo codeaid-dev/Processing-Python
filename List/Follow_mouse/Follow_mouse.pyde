@@ -1,14 +1,12 @@
 xpos, ypos = [],[]
 
 def setup():
-    global xpos,ypos
     size(500,500)
     for i in range(50):
         xpos.append(0)
         ypos.append(0)
 
 def draw():
-    global xpos,ypos
     background(255)
     for i in range(49):
         xpos[i] = xpos[i+1]
