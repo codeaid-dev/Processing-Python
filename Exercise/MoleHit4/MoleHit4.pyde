@@ -19,19 +19,18 @@ def draw():
         if count[i] == 0:
             if isShow[i]:
                 isShow[i] = False
-                count[i] = int(random(120,150))
             else:
                 isShow[i] = True
-                count[i] = int(random(120,150))
+            count[i] = int(random(120,150))
         if isShow[i]:
             ellipse(x[i],y[i],50,50)
 
-        textAlign(CENTER)
-        textSize(50)
-        text('Score: '+str(score),width/2,70)
+    textAlign(CENTER)
+    textSize(50)
+    text('Score: '+str(score),width/2,70)
 
 def mousePressed():
-    global count,isShow, score
+    global count,isShow,score
     for i in range(5):
         dst = dist(mouseX,mouseY,x[i],y[i])
         if dst < 25:

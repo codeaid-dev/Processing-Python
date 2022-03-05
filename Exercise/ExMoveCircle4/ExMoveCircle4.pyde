@@ -19,9 +19,9 @@ def draw():
         if status[i] == 0:
             x[i] += dx[i]
             y[i] += dy[i]
-            if x[i] > width or x[i] < 0:
+            if x[i] > width-20 or x[i] < 20:
                 dx[i] *= -1
-            if y[i] > height or y[i] < 0:
+            if y[i] > height-20 or y[i] < 20:
                 dy[i] *= -1
         ellipse(x[i], y[i], 40, 40)
 

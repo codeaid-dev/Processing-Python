@@ -11,10 +11,9 @@ def draw():
     if count == 0:
         if isShow:
             isShow = False
-            count = int(random(120,150))
         else:
             isShow = True
-            count = int(random(120,150))
+        count = int(random(120,150))
     if isShow:
         ellipse(width/2,height/2,50,50)
 

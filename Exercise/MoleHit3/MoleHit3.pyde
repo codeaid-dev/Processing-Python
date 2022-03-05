@@ -18,10 +18,9 @@ def draw():
         if count[i] == 0:
             if isShow[i]:
                 isShow[i] = False
-                count[i] = int(random(120,150))
             else:
                 isShow[i] = True
-                count[i] = int(random(120,150))
+            count[i] = int(random(120,150))
         if isShow[i]:
             ellipse(x[i],y[i],50,50)
 

@@ -11,8 +11,8 @@ def draw():
     background(0)
     x += dx
     y += dy
-    if x > width or x < 0:
+    if x > width-20 or x < 20:
         dx *= -1
-    if y > height or y < 0:
+    if y > height-20 or y < 20:
         dy *= -1
     ellipse(x, y, 40, 40)
