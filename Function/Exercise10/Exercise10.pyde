@@ -1,5 +1,4 @@
 x, y = 0, 0
-k = 0
 def setup():
     size(500, 500)
     background(0)
@@ -18,7 +17,6 @@ def mouseDragged():
     ellipse(x, y, dst*2, dst*2)
 
 def keyPressed():
-    global k
     if key == 'c':
         background(0)
     if key == 'r':
