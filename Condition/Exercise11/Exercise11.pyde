@@ -21,11 +21,11 @@ def draw():
         dx2 *= -1
     if x3 > width or x3 < 0:
         dx3 *= -1
-    if y1 > width or y1 < 0:
+    if y1 > height or y1 < 0:
         dy1 *= -1
-    if y2 > width or y2 < 0:
+    if y2 > height or y2 < 0:
         dy2 *= -1
-    if y3 > width or y3 < 0:
+    if y3 > height or y3 < 0:
         dy3 *= -1
 
     fill(255,0,0)
