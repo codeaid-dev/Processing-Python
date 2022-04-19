@@ -17,9 +17,9 @@ def draw():
         dx1 *= -1
     if x2 > width or x2 < 0:
         dx2 *= -1
-    if y1 > width or y1 < 0:
+    if y1 > height or y1 < 0:
         dy1 *= -1
-    if y2 > width or y2 < 0:
+    if y2 > height or y2 < 0:
         dy2 *= -1
 
     line(x1, y1, x2, y2)
