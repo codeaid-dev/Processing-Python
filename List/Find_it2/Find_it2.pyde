@@ -10,15 +10,14 @@ def setup():
 def draw():
     background(255)
     fill(0)
-    rectMode(CENTER)
     for i in range(4):
-        xList[i] = 90 + 140 * (i % 4)
-        yList[i] = 200
+        xList[i] = 40 + 140 * i
+        yList[i] = 150
         rect(xList[i], yList[i], 100, 100)
 
     if mousePressed:
-        if mouseX < xList[atari] + 50 and mouseX > xList[atari] - 50 \
-        and mouseY < yList[atari] + 50 and mouseY > yList[atari] - 50:
+        if mouseX>xList[atari] and mouseX<xList[atari]+100 \
+            and mouseY>yList[atari] and mouseY<yList[atari]+100:
             textSize(50)
             textAlign(CENTER)
             text("Atari", width/2, 100)

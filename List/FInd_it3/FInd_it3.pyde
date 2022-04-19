@@ -13,10 +13,9 @@ def draw():
     global gameOver, gameClear
     background(255)
     fill(0)
-    rectMode(CENTER)
     for i in range(4):
-        xList[i] = 90 + 140 * (i % 4)
-        yList[i] = 200
+        xList[i] = 40 + 140 * i
+        yList[i] = 150
         rect(xList[i], yList[i], 100, 100)
 
     if gameOver:
@@ -27,12 +26,12 @@ def draw():
 
     if gameClear:
         fill(255, 0, 0)
-        ellipse(xList[atari], yList[atari], 100, 100)
+        ellipse(xList[atari]+50, yList[atari]+50, 100, 100)
         return
 
     if mousePressed:
-        if mouseX < xList[atari] + 50 and mouseX > xList[atari] - 50 \
-        and mouseY < yList[atari] + 50 and mouseY > yList[atari] - 50:
+        if mouseX>xList[atari] and mouseX<xList[atari]+100 \
+            and mouseY>yList[atari] and mouseY<yList[atari]+100:
             gameClear = True
         else:
             gameOver = True

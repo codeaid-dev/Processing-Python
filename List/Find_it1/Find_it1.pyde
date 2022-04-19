@@ -8,8 +8,7 @@ def draw():
     #global xList, yList
     background(255)
     fill(0)
-    rectMode(CENTER)
     for i in range(4):
-        xList[i] = 90 + 140 * (i % 4)
-        yList[i] = 200
+        xList[i] = 40 + 140 * i
+        yList[i] = 150
         rect(xList[i], yList[i], 100, 100)
