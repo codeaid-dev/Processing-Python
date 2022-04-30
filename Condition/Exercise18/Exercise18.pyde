@@ -14,7 +14,6 @@ def draw():
     y += speed
     speed += gravity
     if y>height-25:
-        speed = 0
         y = height-25
 
 def keyPressed():
