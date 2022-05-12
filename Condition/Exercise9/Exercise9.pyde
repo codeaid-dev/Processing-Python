@@ -14,17 +14,13 @@ def draw():
     if y+25 > height or y-25 < 0:
         dy *= -1
 
-    if x>0 and x<width/2 and \
-         y>0 and y<height/2:
+    if x<width/2 and y<height/2:
         fill(255,0,0)
-    elif x>width/2 and x<width and \
-        y>0 and y<height/2:
+    elif x>width/2 and y<height/2:
         fill(0,255,0)
-    elif x>0 and x<width/2 and \
-        y>height/2 and y<height:
+    elif x<width/2 and y>height/2:
         fill(255,255,0)
-    elif x>width/2 and x<width and \
-        y>height/2 and y<height:
+    elif x>width/2 and y>height/2:
         fill(0,0,255)
 
     ellipse(x, y, 50, 50)
