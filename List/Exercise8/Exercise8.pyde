@@ -22,5 +22,5 @@ def draw():
         rect(xList[i], yList[i], s, s)
 
     if mousePressed:
-        if mouseX < xList[atari] + s and mouseX > xList[atari] and mouseY < yList[atari] + s and mouseY > yList[atari]:
+        if xList[atari]<mouseX<xList[atari]+s and yList[atari]<mouseY<yList[atari]+s:
             clear = True
