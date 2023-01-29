@@ -5,7 +5,6 @@ def setup():
     size(600, 200)
 
 def draw():
-    global x, move
     background(255)
     fill(0)
     ellipse(x, 100, 100, 100)
