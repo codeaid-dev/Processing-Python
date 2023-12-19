@@ -28,14 +28,11 @@ def draw():
             places[i][2] *= -1
 
     if mousePressed:
-        isHit()
+        checkHit()
 
-def isHit():
-    #global places, status
+def checkHit():
     for i in range(cnt):
         dis = dist(mouseX, mouseY, places[i][0], places[i][1])
         if dis < 25:
             places[i][2] = 0
             status[i] = 1
-            return True
-    return False
