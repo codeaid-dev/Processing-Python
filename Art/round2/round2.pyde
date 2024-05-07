@@ -11,7 +11,9 @@ def draw():
     ellipse(width/2,height/2,30,30)
     for i in range(0,360,10):
         x = width/2 + radius * cos(i*PI/180)
+#        x = width/2 + radius * cos(radians(i))
         y = height/2 + radius * sin(i*PI/180)
+#        y = height/2 + radius * sin(radians(i))
         fill(0,200,200)
         ellipse(x,y,5,5)
     radius+=2
