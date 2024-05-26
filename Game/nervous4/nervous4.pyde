@@ -8,13 +8,13 @@ one,two=None,None
 showCount=0
 def setup():
     size(600,600)
+    noStroke()
     for i in range(16):
         while True:
             c=int(random(8))
             if 0<=tiles.count(c)<=1:
                 tiles.append(c)
                 break
-    noStroke()
 
 def draw():
     global showCount,one,two
