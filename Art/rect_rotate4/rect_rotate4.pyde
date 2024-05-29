@@ -12,7 +12,8 @@ def setup():
         print(r.x,r.y)
         r.angle = 0
         r.speed = 1
-        r.rad = radians(r.angle)
+        #r.rad = radians(r.angle)
+        r.rad = radians(r.speed)
         rects.append(r)
 
 def draw():
@@ -22,7 +23,7 @@ def draw():
     for r in rects:
         pushMatrix()
         translate(r.x,r.y)
-        r.angle += r.speed
+        #r.angle += r.speed
         r.rad += radians(r.speed)
         rotate(r.rad)
         rect(0,0,50,50)
