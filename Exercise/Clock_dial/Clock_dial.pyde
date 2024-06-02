@@ -5,6 +5,7 @@ def draw():
     background(0)
     margin = 20
     fill(200)
+    noStroke()
     for i in range(60):
         x = width/2 + (width/2-margin) * cos(radians(i*6))
         y = height/2 + (width/2-margin) * sin(radians(i*6))
