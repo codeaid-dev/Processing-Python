@@ -44,29 +44,25 @@ def draw():
         text("CLEAR", 300, 200)
         return
 
-    if x >= 10 and x <= 60 and y >= 347-w/2 \
-        or x >= 110 and x <= 160 and y >= 293-w/2 \
-        or x >= 210 and x <= 260 and y >= 247-w/2 \
-        or x >= 310 and x <= 360 and y >= 193-w/2 \
-        or x >= 410 and x <= 460 and y >= 147-w/2:
+    if 10 <= x <= 60 and 350 >= y >= 347-w/2 \
+        or 110 <= x <= 160 and 300 >= y >= 293-h/2 \
+        or 210 <= x <= 260 and 250 >= y >= 247-h/2 \
+        or 310 <= x <= 360 and 200 >= y >= 193-h/2 \
+        or 410 <= x <= 460 and 150 >= y >= 147-h/2:
         g = 0
-    elif x >= 510 and x <= 560 and y >= 93-w/2:
+    elif 510 <= x <= 560 and 100 >= y >= 93-h/2:
         g = 0
         clear = True
     else:
         g += 0.1
 
     if keyPressed:
-        if keyCode == UP:
-            sy -= 0.1
-        if keyCode == DOWN:
-            sy += 0.1
+        if keyCode == UP and g == 0:
+            sy -= 7
         if keyCode == LEFT:
             sx -= 0.1
         if keyCode == RIGHT:
             sx += 0.1
-        if keyCode == 0:
-            g = -3;
 
     sx *= 0.98
     sy *= 0.98
