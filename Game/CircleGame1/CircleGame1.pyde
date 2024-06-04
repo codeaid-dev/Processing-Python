@@ -2,6 +2,7 @@ x, y  = 0, 0
 w, h = 30, 30
 sx, sy = 0, 0
 gameOver = False
+r1,r2 = False,False
 
 def setup():
     global x, y, w, h
@@ -12,27 +13,36 @@ def setup():
     h = 30
 
 def draw():
-    global x, y, w, h, sx, sy, gameOver
+    global x, y, w, h, sx, sy, gameOver, r1, r2
     background(255)
     fill(255)
     if x+w/2 >= 50 and x-w/2 <= 50+100 \
         and y+h/2 >= 50 and y-h/2 <= 50+100:
+        r1 = True
+    if r1:
         fill(255,0,0)
     else:
         fill(255)
-
     rect(50, 50, 100, 100)
+
     if x+w/2 >= 450 and x-w/2 <= 450+100 \
         and y+h/2 >= 250 and y-h/2 <= 250+100:
+        r2 = True
+    if r2:
         fill(0,0,255)
     else:
         fill(255)
-
     rect(450, 250, 100, 100)
 
     fill(0)
     ellipse(x, y, w, h)
 
+    if r1 and r2:
+        textSize(50)
+        textAlign(CENTER)
+        text("CLEAR", 300, 200)
+        return
+        
     if gameOver:
         textSize(50)
         textAlign(CENTER)
