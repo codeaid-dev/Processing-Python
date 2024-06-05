@@ -7,8 +7,8 @@ timer = 600
 
 def setup():
     global atari_x, atari_y
-    noStroke()
     size(600, 600)
+    noStroke()
     for y in range(15):
         for x in range(15):
             if x % 2 == 1 and y % 2 == 1:
@@ -34,25 +34,6 @@ def setup():
         if maze[atari_y][atari_y] == 0:
             maze[atari_y][atari_x] = 2
             break
-
-def keyPressed():
-    if over:
-        return
-
-    global xpos,ypos
-    dx, dy = xpos, ypos
-    if keyCode == UP:
-        dy -= 1
-    if keyCode == DOWN:
-        dy += 1
-    if keyCode == LEFT:
-        dx -= 1
-    if keyCode == RIGHT:
-        dx += 1
-    if 0 <= dx < 15 and 0 <= dy < 15:
-        if maze[dy][dx] != 1:
-            xpos = dx
-            ypos = dy
 
 def draw():
     global over, timer
@@ -85,3 +66,21 @@ def draw():
         text("GAME OVER",width/2,height/2)
         over = True
         return
+
+def keyPressed():
+    global xpos,ypos
+    if over:
+        return
+    dx, dy = xpos, ypos
+    if keyCode == UP:
+        dy -= 1
+    if keyCode == DOWN:
+        dy += 1
+    if keyCode == LEFT:
+        dx -= 1
+    if keyCode == RIGHT:
+        dx += 1
+    if 0 <= dx < 15 and 0 <= dy < 15:
+        if maze[dy][dx] != 1:
+            xpos = dx
+            ypos = dy
