@@ -40,13 +40,13 @@ def draw():
     if r1 and r2:
         textSize(50)
         textAlign(CENTER)
-        text("CLEAR", 300, 200)
+        text("Succeed!", 300, 200)
         return
         
     if gameOver:
         textSize(50)
         textAlign(CENTER)
-        text("GAME OVER", 300, 200)
+        text("Fail...", 300, 200)
         return
 
     if keyPressed:

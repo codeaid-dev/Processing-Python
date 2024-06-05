@@ -18,9 +18,9 @@ class Circle:
 player = None
 walls = []
 over,clear = False,False
-time = 0
+timer = 400
 def setup():
-    global player,walls
+    global player
     size(600,400)
     player = Circle(60,60,30)
     goal = int(random(54))
@@ -34,7 +34,7 @@ def setup():
         walls.append(w)
 
 def draw():
-    global over,clear,time
+    global over,clear,timer
     background(255)
     noStroke()
     for w in walls:
@@ -43,7 +43,6 @@ def draw():
         else:
             w.display(color(255,0,0))
     player.display(color(0))
-
     textSize(50)
     textAlign(CENTER)
     if over:
@@ -51,19 +50,17 @@ def draw():
         return
     if clear:
         text('CLEAR',300,200)
-        text(time,300,250)
         return
-    time = frameCount/60
 
     if keyPressed:
-        if keyCode == LEFT:
-            player.dx -= 0.1
-        if keyCode == RIGHT:
-            player.dx += 0.1
         if keyCode == UP:
             player.dy -= 0.1
         if keyCode == DOWN:
             player.dy += 0.1
+        if keyCode == LEFT:
+            player.dx -= 0.1
+        if keyCode == RIGHT:
+            player.dx += 0.1
 
     player.dx *= 0.98
     player.dy *= 0.98
@@ -76,3 +73,9 @@ def draw():
                 clear = True
             else:
                 over = True
+
+    fill(255, 183, 0)
+    rect(0, 0, 15, timer)
+    timer -= 0.6
+    if timer < 0:
+        over = True
