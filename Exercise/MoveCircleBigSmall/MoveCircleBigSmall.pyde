@@ -9,7 +9,7 @@ def setup():
     en.y = height/2
     en.sx = random(5)
     en.sy = random(5)
-    en.dia = 30
+    en.r = 15
     en.sd = 1
     noStroke()
 
@@ -17,14 +17,14 @@ def draw():
     background(0)
     en.x += en.sx
     en.y += en.sy
-    if en.x < en.dia/2 or en.x > width-en.dia/2:
+    if en.x < en.r or en.x > width-en.r:
         en.sx *= -1
-    if en.y < en.dia/2 or en.y > height-en.dia/2:
+    if en.y < en.r or en.y > height-en.r:
         en.sy *= -1
-    ellipse(en.x,en.y,en.dia,en.dia)
+    ellipse(en.x,en.y,en.r*2,en.r*2)
     
     if frameCount % 5 == 0:
-        en.dia += en.sd
-        if en.dia <= 0 or en.dia > 100:
+        en.r += en.sd
+        if en.r*2 <= 0 or en.r*2 > 100:
             en.sd *= -1
     
