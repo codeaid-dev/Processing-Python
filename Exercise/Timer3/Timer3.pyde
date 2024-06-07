@@ -14,16 +14,16 @@ class Timer:
     def is_finished(self):
         if self.saved != 0:
             if (millis()-self.saved)/1000 >= self.timer:
+                self.stop()
                 return True
             else:
                 return False
         return True
     def get_time(self):
-        if self.saved != 0:
-            if self.is_finished():
-                return self.timer
+        if self.is_finished():
+            return self.passed
+        else:
             return (millis()-self.saved)/1000
-        return 0
 
 timer=Timer(10)
 
