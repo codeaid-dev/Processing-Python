@@ -1,24 +1,26 @@
 class Snake:
     def __init__(self):
-        self.x = 9
-        self.y = 9
+        self.body = [PVector(9,9) for i in range(5)]
         self.dx = 0
         self.dy = 0
-        self.w = 30
     def direction(self,dx,dy):
         self.dx = dx
         self.dy = dy
     def move(self):
-        self.x += self.dx
-        self.y += self.dy
+        for i in range(len(self.body)-1,0,-1):
+            self.body[i].x = self.body[i-1].x
+            self.body[i].y = self.body[i-1].y
+        self.body[0].x += self.dx
+        self.body[0].y += self.dy
     def display(self):
         fill(0,255,0)
-        rect(self.x*self.w,self.y*self.w,self.w,self.w)
+        for i in range(len(self.body)):
+            rect(self.body[i].x*30,self.body[i].y*30,30,30)
     def collision(self):
-        return self.x < self.w/2 or \
-            self.x > width-self.w/2 or \
-            self.y < self.w/2 or \
-            self.y > height-self.w/2
+        return self.body[0].x < 0 or \
+            self.body[0].x > 19 or \
+            self.body[0].y < 0 or \
+            self.body[0].y > 19
 
 snake = None
 over = False
@@ -50,10 +52,10 @@ def draw():
 
 def keyPressed():
     if keyCode == UP:
-        snake.direction(0,-2)
+        snake.direction(0,-1)
     if keyCode == DOWN:
-        snake.direction(0,2)
+        snake.direction(0,1)
     if keyCode == LEFT:
-        snake.direction(-2,0)
+        snake.direction(-1,0)
     if keyCode == RIGHT:
-        snake.direction(2,0)
+        snake.direction(1,0)
