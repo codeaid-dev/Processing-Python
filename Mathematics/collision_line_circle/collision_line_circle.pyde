@@ -32,11 +32,10 @@ def collision(Ax,Ay,Bx,By,Px,Py,radius):
     AP = PVector(Px-Ax,Py-Ay)
     BP = PVector(Px-Bx,Py-By)
     AB = PVector(Bx-Ax,By-Ay)
-    normalAB = PVector(Bx-Ax,By-Ay)
-    normalAB.normalize()
+    AB.normalize()
 
     #単位ベクトルABとベクトルAPの内積(AXの距離)
-    lenAX = normalAB.x*AP.x+normalAB.y*AP.y
+    lenAX = AB.x*AP.x+AB.y*AP.y
     if lenAX < 0:
         #AXが負ならAPが最短距離
         shortest = dist(Ax,Ay,Px,Py)
@@ -45,12 +44,12 @@ def collision(Ax,Ay,Bx,By,Px,Py,radius):
         shortest = dist(Bx,By,Px,Py)
     else:
         #単位ベクトルAPとベクトルAPの外積(PXの距離)
-        lenPX = normalAB.x*AP.y-normalAB.y*AP.x
+        lenPX = AB.x*AP.y-AB.y*AP.x
         #PがAB線分上にあるので、PXが最短距離
         shortest = abs(lenPX)
 
-    crossPoint.x = Ax+(normalAB.x*lenAX)
-    crossPoint.y = Ay+(normalAB.y*lenAX)
+    crossPoint.x = Ax+(AB.x*lenAX)
+    crossPoint.y = Ay+(AB.y*lenAX)
 
     if shortest < radius:
         return True
