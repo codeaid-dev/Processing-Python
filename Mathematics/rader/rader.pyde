@@ -22,23 +22,27 @@ def draw():
             noStroke()
             ellipse(t[0],t[1],t[2]*2,t[2]*2)
 
-def collision(sx,sy,ex,ey,tx,ty,radius):
-    StoC = PVector(tx-sx,ty-sy)
-    EtoC = PVector(tx-ex,ty-ey)
-    StoE = PVector(ex-sx,ey-sy)
-    normalized_StoE = PVector(ex-sx,ey-sy)
-    normalized_StoE.normalize()
+def collision(Ax,Ay,Bx,By,Px,Py,radius):
+    AP = PVector(Px-Ax,Py-Ay)
+    BP = PVector(Px-Bx,Py-By)
+    AB = PVector(Bx-Ax,By-Ay)
+    normalAB = PVector(Bx-Ax,By-Ay)
+    normalAB.normalize()
 
-    pj = StoC.x*normalized_StoE.y-normalized_StoE.x*StoC.y
-    if abs(pj) < radius:
-        dot1 = StoC.x*StoE.x
-        dot2 = EtoC.x*StoE.x+EtoC.y*StoE.y
-        if dot1 * dot2 <= 0.0:
-            return True
-        else:
-            if dist(sx,sy,tx,ty)<radius or dist(ex,ey,tx,ty)<radius:
-                return True
-            else:
-                return False
+    #単位ベクトルABとベクトルAPの内積(AXの距離)
+    lenAX = normalAB.x*AP.x+normalAB.y*AP.y
+    if lenAX < 0:
+        #AXが負ならAPが最短距離
+        shortest = dist(Ax,Ay,Px,Py)
+    elif lenAX > dist(Ax,Ay,Bx,By):
+        #AXがABより長い場合はBPが最短距離
+        shortest = dist(Bx,By,Px,Py)
     else:
-        return False
+        #単位ベクトルAPとベクトルAPの外積(PXの距離)
+        lenPX = normalAB.x*AP.y-normalAB.y*AP.x
+        #PがAB線分上にあるので、PXが最短距離
+        shortest = abs(lenPX)
+
+    if shortest < radius:
+        return True
+    return False
