@@ -54,7 +54,7 @@ def draw():
         text('GAME OVER',width/2,height/2)
 
     if ball.collision(player):
-        # 変換後の最小値+(変換後の範囲<大きさ>)*((指定した数値-変換前の最小値)/(変換前の範囲<大きさ>))
+        # 変換後の最小値+(変換後の範囲)*((指定した数値-変換前の最小値)/(変換前の範囲))
         dx = -4 + 8 * (ball.x-player.x)/player.w
         #dx = map(ball.x,player.x,player.x+player.w,-4,4)
         ball.dx = dx

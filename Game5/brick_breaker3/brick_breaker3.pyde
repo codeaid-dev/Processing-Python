@@ -65,12 +65,34 @@ def draw():
         fill(255)
         text('GAME OVER',width/2,height/2)
 
+    if mode == 'clear':
+        textAlign(CENTER)
+        textSize(50)
+        fill(0,255,0)
+        text('GAME CLEAR',width/2,height/2)
+
     if ball.collision(player):
-        # 変換後の最小値+(変換後の範囲<大きさ>)*((指定した数値-変換前の最小値)/(変換前の範囲<大きさ>))
+        # 変換後の最小値+(変換後の範囲)*((指定した数値-変換前の最小値)/(変換前の範囲))
         dx = -4 + 8 * (ball.x-player.x)/player.w
         #dx = map(ball.x,player.x,player.x+player.w,-4,4)
         ball.dx = dx
         ball.dy = -abs(ball.dy)
+
+    for b in list(bricks):
+        if ball.collision(b):
+            if ball.y-ball.s/2 < b.y+b.h < ball.y+ball.s/2 or \
+                ball.y-ball.s/2 < b.y < ball.y+ball.s/2:
+                ball.dy *= -1
+            elif ball.x-ball.s/2 < b.x+b.w < ball.x+ball.s/2 or \
+                ball.x-ball.s/2 < b.x < ball.x+ball.s/2:
+                ball.dx *= -1
+            else:
+                ball.dx *= -1
+                ball.dy *= -1
+            bricks.remove(b)
+
+    if len(bricks) == 0:
+        mode = 'clear'
 
     if ball.is_bottom():
         mode = 'over'
