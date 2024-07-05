@@ -1,11 +1,10 @@
-x,y=0,0
 points=0
 radius=200
 def setup():
     size(500,500)
 
 def draw():
-    global x,y,points
+    global points
     background(255)
     noStroke()
     fill(255,200,0)
