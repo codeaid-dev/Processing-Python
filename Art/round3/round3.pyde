@@ -1,4 +1,3 @@
-x,y=0,0
 points=0
 radius=1
 dr=0.1
@@ -6,7 +5,7 @@ def setup():
     size(500,500)
 
 def draw():
-    global x,y,points,radius,dr
+    global points,radius,dr
     fill(0,10)
     rect(0,0,width,height)
     noStroke()

@@ -1,10 +1,9 @@
-x,y=0,0
 radius=0
 def setup():
     size(500,500)
 
 def draw():
-    global x,y,radius
+    global radius
     background(255)
     noStroke()
     fill(255,200,0)
