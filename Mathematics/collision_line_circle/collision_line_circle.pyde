@@ -30,7 +30,6 @@ def draw():
 
 def collision(Ax,Ay,Bx,By,Px,Py,radius):
     AP = PVector(Px-Ax,Py-Ay)
-    BP = PVector(Px-Bx,Py-By)
     AB = PVector(Bx-Ax,By-Ay)
     AB.normalize()
 

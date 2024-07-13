@@ -4,7 +4,6 @@ def setup():
     size(600,400)
 
 def draw():
-    global rad
     background(0)
     fill(255)
     rectMode(CENTER)
