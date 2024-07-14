@@ -4,11 +4,7 @@ def setup():
 def draw():
     background(255)
     fill(255,255,0)
-    pushMatrix()
-    translate(width/2,height/2)
-    rotate(-90*PI/180)
-    star(0,0,100,40,5)
-    popMatrix()
+    star(width/2,height/2,100,40,5)
 
 def star(x,y,radius1,radius2,n):
     angle = TWO_PI/(n*2)
