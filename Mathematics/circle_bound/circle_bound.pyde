@@ -15,4 +15,3 @@ def draw():
         dir = 180-dir
     if y < 15 or y > height-15:
         dir *= -1
-    print(dir)
