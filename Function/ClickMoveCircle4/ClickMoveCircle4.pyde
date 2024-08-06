@@ -29,7 +29,4 @@ def mousePressed():
     for i in range(4):
         dst = dist(mouseX, mouseY, x[i], y[i])
         if dst < 20:
-            if status[i] == 0:
-                status[i] = 1
-            else:
-                status[i] = 0
+            status[i] = 1 if status[i] == 0 else 0

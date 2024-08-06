@@ -23,7 +23,4 @@ def mousePressed():
     global status
     dst = dist(mouseX, mouseY, x, y)
     if dst < 20:
-        if status == 0:
-            status = 1
-        else:
-            status = 0
+        status = 1 if status == 0 else 0

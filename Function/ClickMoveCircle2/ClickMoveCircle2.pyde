@@ -21,8 +21,4 @@ def draw():
 
 def mousePressed():
     global status
-    if status == 0:
-        status = 1
-    else:
-        status = 0
-    
+    status = 1 if status == 0 else 0
