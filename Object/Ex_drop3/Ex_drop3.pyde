@@ -16,6 +16,7 @@ class Drop:
         fill(self.c)
         noStroke()
         for i in range(2,self.r):
+            #fill(self.c,(i-2)*40)
             ellipse(self.x,self.y+i*4,i*2,i*2)
 
 drops=[]
