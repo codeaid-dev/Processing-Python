@@ -1,6 +1,6 @@
 class Circle:
     pass
-ens = []
+circles = []
 def setup():
     size(600,600)
     for i in range(10):
@@ -10,12 +10,12 @@ def setup():
         en.angle = random(TWO_PI)
         en.speed = random(2,6)
         en.radius = 15
-        en.color = color(0,255,0)
-        ens.append(en)
+        en.iro = color(0,255,0)
+        circles.append(en)
 
 def draw():
     background(255)
-    for en in ens:
+    for en in circles:
         en.x += en.speed * cos(en.angle)
         en.y += en.speed * sin(en.angle)
         if en.x < en.radius or en.x > width-en.radius:
@@ -23,5 +23,5 @@ def draw():
         if en.y < en.radius or en.y > height-en.radius:
             en.angle *= -1
         noStroke()
-        fill(en.color)
+        fill(en.iro)
         ellipse(en.x,en.y,en.radius*2,en.radius*2)
