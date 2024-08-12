@@ -4,24 +4,24 @@ circles = []
 def setup():
     size(600,600)
     for i in range(10):
-        en = Circle()
-        en.x = width/2
-        en.y = height/2
-        en.angle = random(TWO_PI)
-        en.speed = random(2,6)
-        en.radius = 15
-        en.iro = color(0,255,0)
-        circles.append(en)
+        c = Circle()
+        c.radius = 15
+        c.x = random(c.radius,width-c.radius)
+        c.y = random(c.radius,height-c.radius)
+        c.angle = random(TWO_PI)
+        c.speed = random(2,6)
+        c.iro = color(0,255,0)
+        circles.append(c)
 
 def draw():
     background(255)
-    for en in circles:
-        en.x += en.speed * cos(en.angle)
-        en.y += en.speed * sin(en.angle)
-        if en.x < en.radius or en.x > width-en.radius:
-            en.angle = PI-en.angle
-        if en.y < en.radius or en.y > height-en.radius:
-            en.angle *= -1
+    for c in circles:
+        c.x += c.speed * cos(c.angle)
+        c.y += c.speed * sin(c.angle)
+        if c.x < c.radius or c.x > width-c.radius:
+            c.angle = PI-c.angle
+        if c.y < c.radius or c.y > height-c.radius:
+            c.angle *= -1
         noStroke()
-        fill(en.iro)
-        ellipse(en.x,en.y,en.radius*2,en.radius*2)
+        fill(c.iro)
+        ellipse(c.x,c.y,c.radius*2,c.radius*2)

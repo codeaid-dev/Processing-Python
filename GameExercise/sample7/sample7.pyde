@@ -1,44 +1,44 @@
 class Circle:
     pass
 circles = []
-player = None
+target = None
 def setup():
-    global player
+    global target
     size(600,600)
     for i in range(10):
-        en = Circle()
-        en.x = width/2
-        en.y = height/2
-        en.angle = random(TWO_PI)
-        en.speed = random(2,6)
-        en.radius = 15
-        en.iro = color(0,255,0)
-        en.move = True
-        circles.append(en)
-    player = Circle()
-    player.x = mouseX
-    player.y = mouseY
-    player.radius = 30
+        c = Circle()
+        c.radius = 15
+        c.x = random(c.radius,width-c.radius)
+        c.y = random(c.radius,height-c.radius)
+        c.angle = random(TWO_PI)
+        c.speed = random(2,6)
+        c.iro = color(0,255,0)
+        c.move = True
+        circles.append(c)
+    target = Circle()
+    target.x = width/2
+    target.y = height/2
+    target.radius = 50
 
 def draw():
     background(255)
-    for en in circles:
-        if en.move:
-            en.x += en.speed * cos(en.angle)
-            en.y += en.speed * sin(en.angle)
-            if en.x < en.radius or en.x > width-en.radius:
-                en.angle = PI-en.angle
-            if en.y < en.radius or en.y > height-en.radius:
-                en.angle *= -1
-        distance = dist(en.x,en.y,player.x,player.y)
-        if distance < (en.radius+player.radius) or not en.move:
+    for c in circles:
+        if c.move:
+            c.x += c.speed * cos(c.angle)
+            c.y += c.speed * sin(c.angle)
+            if c.x < c.radius or c.x > width-c.radius:
+                c.angle = PI-c.angle
+            if c.y < c.radius or c.y > height-c.radius:
+                c.angle *= -1
+        distance = dist(c.x,c.y,target.x,target.y)
+        if distance < (c.radius+target.radius)\
+             or not c.move:
             fill(128)
-            en.move = False
+            c.move = False
         else:
-            fill(en.iro)
+            fill(c.iro)
         noStroke()
-        ellipse(en.x,en.y,en.radius*2,en.radius*2)
-    player.x = mouseX
-    player.y = mouseY
+        ellipse(c.x,c.y,c.radius*2,c.radius*2)
     fill(0)
-    ellipse(player.x,player.y,player.radius*2,player.radius*2)
+    ellipse(target.x,target.y,
+            target.radius*2,target.radius*2)
