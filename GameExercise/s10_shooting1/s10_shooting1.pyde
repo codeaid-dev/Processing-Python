@@ -32,6 +32,5 @@ def draw():
             player.dx -= 1
         if keyCode == RIGHT:
             player.dx += 1
-            shoot = True
     player.move(0.95)
     player.draw()

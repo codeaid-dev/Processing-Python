@@ -16,6 +16,7 @@ class Sprite:
         if w==0 or h==0:
             image(self.img,self.x,self.y)
         else:
+            self.radius = h/2
             image(self.img,self.x,self.y,w,h)
     def collide(self,sprite):
         distance = sqrt((self.x-sprite.x)**2 + (self.y-sprite.y)**2)
