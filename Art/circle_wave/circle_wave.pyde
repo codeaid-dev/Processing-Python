@@ -6,7 +6,9 @@ def setup():
 
 def draw():
     global x, y, dx
-    overlay()
+    fill(0, 10)
+    noStroke()
+    rect(0, 0, width, height)
     fill(255)
     ellipse(x, y+height/2, 50, 50)
     if x < 0:
@@ -15,8 +17,3 @@ def draw():
         dx -= 1
     x += dx
     y = 100 * sin(radians(x))
-    
-def overlay():
-    fill(126, 5)
-    noStroke()
-    rect(0, 0, width, height)
