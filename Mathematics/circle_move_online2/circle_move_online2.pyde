@@ -1,7 +1,7 @@
 x1,y1 = 100,100
 x2,y2 = 400,400
-status = True
 circleX,circleY = x1,y1
+status = True
 def setup():
     size(500,500)
 
