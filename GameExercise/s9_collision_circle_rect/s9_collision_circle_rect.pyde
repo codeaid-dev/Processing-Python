@@ -45,9 +45,9 @@ def collide(cx, cy, cr, rx, ry, rw, rh):
     # closestY = constrain(cy, ry, ry + rh)
 
     # 円の中心から四角形の最近傍点までの距離を計算
-    distanceX = cx - closestX
-    distanceY = cy - closestY
+    dx = cx - closestX
+    dy = cy - closestY
 
     # 距離の二乗が円の半径の二乗以下なら衝突している
-    distance = sqrt(distanceX * distanceX + distanceY * distanceY);
+    distance = sqrt(dx * dx + dy * dy)
     return distance < cr
