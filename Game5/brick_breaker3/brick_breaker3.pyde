@@ -12,10 +12,23 @@ class Ball:
         if self.y < self.s/2 or self.y > height-self.s/2:
             self.dy *= -1
     def collision(self,brick):
-        return brick.x < self.x+self.s/2 and \
-                brick.x+brick.w > self.x-self.s/2 and \
-                brick.y < self.y+self.s/2 and \
-                brick.y+brick.h > self.y-self.s/2
+        if self.x < brick.x:
+            closestX = brick.x
+        elif self.x > brick.x + brick.w:
+            closestX = brick.x + brick.w
+        else:
+            closestX = self.x
+    
+        if self.y < brick.y:
+            closestY = brick.y
+        elif self.y > brick.y + brick.h:
+            closestY = brick.y + brick.h
+        else:
+            closestY = self.y
+        dx = self.x - closestX
+        dy = self.y - closestY
+        distance = sqrt(dx * dx + dy * dy)
+        return distance < self.s/2
     def is_bottom(self):
         return self.y+self.s/2 > height
 
@@ -78,7 +91,7 @@ def draw():
         ball.dx = dx
         ball.dy = -abs(ball.dy)
 
-    for b in list(bricks):
+    for b in bricks:
         if ball.collision(b):
             if ball.y-ball.s/2 < b.y+b.h < ball.y+ball.s/2 or \
                 ball.y-ball.s/2 < b.y < ball.y+ball.s/2:
