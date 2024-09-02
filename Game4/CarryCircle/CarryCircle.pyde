@@ -35,7 +35,7 @@ def draw():
     fill(255,0,0)
     passed = (millis() - saved)/1000
     if (passed >= 20 and complete == False) or over:
-        text('Time Over',width/2,height/2)
+        text('Time is up..',width/2,height/2)
         over = True
     elif complete:
         text('Finish!',width/2,height/2)
