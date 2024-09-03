@@ -56,11 +56,11 @@ def draw():
         status += 1
         if status == 1:
             saved_time = millis()
-    for r in tiles:
+    for t in tiles:
         if status == 0 or status == 2:
-            r.draw()
+            t.draw()
         else:
-            r.draw(color(200))
+            t.draw(color(200))
 
     for c in circles:
         c.draw()

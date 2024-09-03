@@ -32,8 +32,8 @@ def setup():
 
 def draw():
     background(255)
-    for r in tiles:
-        r.draw()
+    for t in tiles:
+        t.draw()
 
     textAlign(CENTER)
     textSize(30)
