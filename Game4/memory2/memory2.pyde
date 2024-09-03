@@ -1,16 +1,16 @@
-class Rect:
+class Tile:
     def __init__(self,x,y,c):
         self.x = x
         self.y = y
         self.c = c
-    def display(self,c=None):
+    def draw(self,c=None):
         if c==None:
             fill(self.c)
         else:
             fill(c)
         rect(self.x,self.y,100,100)
 
-rects = []
+tiles = []
 colors = [color(255,0,0),
           color(0,255,0),
           color(0,0,255),
@@ -30,7 +30,7 @@ def setup():
         if len(qcolors) == 6:
             break
     for i in range(6):
-        rects.append(Rect(50+i%3*200,100+i/3*150,qcolors[i]))
+        tiles.append(Tile(50+i%3*200,100+i/3*150,qcolors[i]))
 
 def draw():
     global saved_time,status
@@ -45,11 +45,11 @@ def draw():
         status += 1
         if status == 1:
             saved_time = millis()
-    for r in rects:
+    for r in tiles:
         if status == 0 or status == 2:
-            r.display()
+            r.draw()
         else:
-            r.display(color(200))
+            r.draw(color(200))
 
     textAlign(CENTER)
     textSize(30)
@@ -57,7 +57,7 @@ def draw():
     if status == 0:
         text('Memory all',width/2,80)
     elif status == 1:
-        text('Put all circles there',width/2,80)
+        text('Put all circles on each tile',width/2,80)
     else:
         text('Done',width/2,80)
     text(timer,width/2,50)

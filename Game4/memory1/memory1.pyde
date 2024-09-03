@@ -1,16 +1,16 @@
-class Rect:
+class Tile:
     def __init__(self,x,y,c):
         self.x = x
         self.y = y
         self.c = c
-    def display(self,c=None):
+    def draw(self,c=None):
         if c==None:
             fill(self.c)
         else:
             fill(c)
         rect(self.x,self.y,100,100)
 
-rects = []
+tiles = []
 colors = [color(255,0,0),
           color(0,255,0),
           color(0,0,255),
@@ -28,12 +28,12 @@ def setup():
         if len(qcolors) == 6:
             break
     for i in range(6):
-        rects.append(Rect(50+i%3*200,100+i/3*150,qcolors[i]))
+        tiles.append(Tile(50+i%3*200,100+i/3*150,qcolors[i]))
 
 def draw():
     background(255)
-    for r in rects:
-        r.display()
+    for r in tiles:
+        r.draw()
 
     textAlign(CENTER)
     textSize(30)
