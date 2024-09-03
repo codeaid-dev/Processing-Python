@@ -3,7 +3,7 @@ class Tile:
         self.x = x
         self.y = y
         self.c = c
-    def display(self,c=None):
+    def draw(self,c=None):
         if c==None:
             fill(self.c)
         else:
@@ -15,7 +15,7 @@ class Circle:
         self.x = x
         self.y = y
         self.c = c
-    def display(self):
+    def draw(self):
         fill(self.c)
         ellipse(self.x,self.y,50,50)
 
@@ -58,12 +58,12 @@ def draw():
             saved_time = millis()
     for r in tiles:
         if status == 0 or status == 2:
-            r.display()
+            r.draw()
         else:
-            r.display(color(200))
+            r.draw(color(200))
 
     for c in circles:
-        c.display()
+        c.draw()
 
     textAlign(CENTER)
     textSize(30)
