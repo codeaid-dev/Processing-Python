@@ -25,15 +25,16 @@ class Snake:
         pv = PVector(self.body[-1].x,self.body[-1].y)
         self.body.append(pv)
     def eat(self,food):
-        return self.body[0].dist(food) == 0
+        return self.body[0].x == food.x \
+            and self.body[0].y == food.y
 
 class Food:
     def display(self):
         fill(255,0,0)
         rect(self.x*30,self.y*30,30,30)
     def set_position(self):
-        self.x = int(random(19))
-        self.y = int(random(19))
+        self.x = int(random(20))
+        self.y = int(random(20))
 
 snake = None
 food = None
