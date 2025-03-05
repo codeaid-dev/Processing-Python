@@ -32,6 +32,8 @@ def draw():
             if en.collide(other) and en.move and other.move:
                 if en.size < other.size:
                     ens.remove(en)
+                    #en.move = False
+                    #en.color = color(255,0)
                     other.size += en.size/5
                     if other.x < other.size/2:
                         other.x = other.size/2
@@ -49,6 +51,8 @@ def mousePressed():
         d = dist(en.x,en.y,mouseX,mouseY)
         if d < en.size/2:
             ens.remove(en)
+            #en.move = False
+            #en.color = color(255,0)
             for n in range(0,360,30):
                 new_en = Circle()
                 new_en.size = en.size/5
