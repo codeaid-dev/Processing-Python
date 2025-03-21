@@ -15,12 +15,11 @@ def setup():
 
 def draw():
     global px,py,ps,sx,sy
-    rs = 100
     background(255)
 
     for i in range(6):
         fill(255)
-        rect(rxList[i], ryList[i], rs, rs)
+        rect(rxList[i], ryList[i], 100, 100)
     fill(0)
     ellipse(px, py, ps, ps)
 

@@ -1,7 +1,7 @@
 x, y = 0, 0
 w, h = 30, 30
 sx, sy = 0, 0
-gameOver = False
+over = False
 clear = False
 count = 400
 
@@ -14,7 +14,7 @@ def setup():
     h = 30
 
 def draw():
-    global x, y, w, h, sx, sy, gameOver, clear, count
+    global x, y, w, h, sx, sy, over, clear, count
     background(255)
     noStroke()
 
@@ -31,13 +31,13 @@ def draw():
     fill("#0000FF")
     rect(515, 50, 50, 50)
 
-    if mousePressed and not gameOver:
+    if mousePressed and not over:
         x = mouseX
         y = mouseY
     fill(0)
     ellipse(x, y, w, h)
 
-    if gameOver:
+    if over:
         textSize(50)
         textAlign(CENTER)
         text("GAME OVER", 300, 200)
@@ -65,14 +65,14 @@ def draw():
     y += sy
 
     if x < w/2 or x > (width - w/2) or y < h/2 or y > (height - h/2):
-        gameOver = True
+        over = True
 
     if (x >= 125-w/2 and x <= 475+w/2 and y <= 100+h/2) \
         or (x >= 325-w/2 and x <= 475+w/2 and  y <= 250+h/2) \
         or (x >= 125-w/2 and x <= 475+w/2 and y >= 300-h/2) \
         or (x >= 125-w/2 and x <= 275+w/2 and y >= 150-h/2) \
         or count < 0:
-        gameOver = True
+        over = True
 
     if x >= 515+w/2 and x <= 565-w/2 and y >= 50+w/2 and y <= 100-w/2:
       clear = True

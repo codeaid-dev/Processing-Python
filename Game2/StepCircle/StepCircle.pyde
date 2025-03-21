@@ -1,7 +1,7 @@
 x, y, g = 0, 0, 0
 w, h = 30, 30
 sx, sy = 0, 0
-gameOver = False
+over = False
 clear = False
 count = 400
 
@@ -15,7 +15,7 @@ def setup():
     h = 30
 
 def draw():
-    global x, y, w, h, sx, sy, g, gameOver, clear, count
+    global x, y, w, h, sx, sy, g, over, clear, count
     background(255)
 
     stroke(0)
@@ -32,7 +32,7 @@ def draw():
     fill(0)
     ellipse(x, y, w, h)
 
-    if gameOver:
+    if over:
         textSize(50)
         textAlign(CENTER)
         text("GAME OVER", 300, 200)
@@ -71,4 +71,4 @@ def draw():
     y += g
 
     if x < w/2 or x > (width - w/2) or y < h/2 or y > (height - h/2):
-        gameOver = True
+        over = True

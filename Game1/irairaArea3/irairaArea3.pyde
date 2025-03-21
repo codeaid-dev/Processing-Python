@@ -17,7 +17,6 @@ def setup():
     for i in range(54):
         x = i%9
         y = i/9
-        c = color(255,0,0)
         w = Circle(x*66+34,y*66+34,30)
         walls.append(w)
 

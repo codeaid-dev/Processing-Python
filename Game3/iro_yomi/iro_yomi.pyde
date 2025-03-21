@@ -68,6 +68,6 @@ def mousePressed():
                 if odai[0] == i:
                     answer += 1
 
-            for i in range(2):
-                odai[i] = int(random(4))
+            for j in range(2):
+                odai[j] = int(random(4))
             odai[2] = int(random(2))
