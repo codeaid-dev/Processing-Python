@@ -8,7 +8,6 @@ class Circle:
         ellipse(self.x,self.y,self.s,self.s)
 
 player = None
-enemy = []
 status = 0
 def setup():
     global player
@@ -22,6 +21,7 @@ def draw():
     if status == 0:
         fill(255)
         textAlign(CENTER)
+        textSize(50)
         text("GAME START",width/2,height/2)
         return
     

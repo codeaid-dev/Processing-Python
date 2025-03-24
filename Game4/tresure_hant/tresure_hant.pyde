@@ -16,9 +16,7 @@ def make_maze():
                 d = int(random(4))
             maze[y+dy[d]][x+dx[d]] = 1
 
-tresurex,tresurey = 1,1
 def set_tresure():
-    global tresurex,tresurey
     while True:
         tresurex = int(random(1,mazew-1))
         tresurey = int(random(1,mazeh-1))

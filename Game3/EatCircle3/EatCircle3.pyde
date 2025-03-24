@@ -22,6 +22,7 @@ def draw():
     if status == 0:
         fill(255)
         textAlign(CENTER)
+        textSize(50)
         text("GAME START",width/2,height/2)
         return
 
@@ -35,6 +36,7 @@ def draw():
     if status == 2:
         fill(255)
         textAlign(CENTER)
+        textSize(50)
         text("GAME OVER",width/2,height/2)
         return
 
