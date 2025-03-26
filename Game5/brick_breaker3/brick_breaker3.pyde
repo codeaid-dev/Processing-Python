@@ -99,6 +99,7 @@ def draw():
             else:
                 ball.dx *= -1
             bricks.remove(b)
+            break
 
     if len(bricks) == 0:
         mode = 'clear'

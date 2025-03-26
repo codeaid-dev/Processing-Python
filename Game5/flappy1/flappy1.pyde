@@ -33,6 +33,8 @@ class Player:
         if b.type == 'start':
             return b.x < self.x < b.x+b.w and \
                     b.y < self.y+15 < b.y+b.h
+        else:
+            return False;
     def out_of_space(self):
         return 15 > self.x or self.x > width-15 or \
                 15 > self.y or self.y > height-15

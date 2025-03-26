@@ -93,19 +93,19 @@ def draw():
         flag = False
     if int(random(100))%20==0:
         enemy.shot()
-    if player.bullets:
-        for bullet in player.bullets:
-            bullet.show('#ffffff')
-            if bullet.is_hit(enemy):
-                player.bullets.remove(bullet)
-                enemy.collision += 1
-                if enemy.collision > 4:
-                    enemy.crash = True
-    if enemy.bullets:
-        for bullet in enemy.bullets:
-            bullet.show('#ff0000')
-            if bullet.is_hit(player):
-                enemy.bullets.remove(bullet)
-                player.collision += 1
-                if player.collision > 2:
-                    player.crash = True
+    for bullet in player.bullets:
+        bullet.show('#ffffff')
+        if bullet.is_hit(enemy):
+            player.bullets.remove(bullet)
+            enemy.collision += 1
+            if enemy.collision > 4:
+                enemy.crash = True
+            break
+    for bullet in enemy.bullets:
+        bullet.show('#ff0000')
+        if bullet.is_hit(player):
+            enemy.bullets.remove(bullet)
+            player.collision += 1
+            if player.collision > 2:
+                player.crash = True
+            break

@@ -38,7 +38,11 @@ def draw():
     fill(128)
     for y in range(mazew):
         for x in range(mazeh):
-            if maze[y][x] == 1 and x <= xpos+2 and x >= xpos-2 and y <= ypos+2 and y >= ypos-2:
+            if maze[y][x] == 1\
+            and x <= xpos+2\
+            and x >= xpos-2\
+            and y <= ypos+2\
+            and y >= ypos-2:
                 rect(x*40, y*40, 40, 40)
     if over:
         fill(255, 0, 0)

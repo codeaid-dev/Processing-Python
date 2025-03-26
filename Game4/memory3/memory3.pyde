@@ -27,21 +27,19 @@ colors = [color(255,0,0),
           color(255,255,0),
           color(0,255,255),
           color(255,0,255)]
-qcolors = []
 saved_time = millis()
 status = 0 # 0:memory, 1:doing, 2:show
 
 def setup():
     size(600,400)
-    while True:
-        num = int(random(6))
-        if not colors[num] in qcolors:
-            qcolors.append(colors[num])
-        if len(qcolors) == 6:
-            break
     for i in range(6):
-        tiles.append(Tile(50+i%3*200,100+i/3*150,qcolors[i]))
-        circles.append(Circle(random(25,width-25),random(25,75),qcolors[i]))
+        n = int(random(6))
+        temp = colors[i]
+        colors[i] = colors[n]
+        colors[n] = temp
+    for i in range(6):
+        tiles.append(Tile(50+i%3*200,100+i/3*150,colors[i]))
+        circles.append(Circle(random(25,width-25),random(25,75),colors[i]))
 
 def draw():
     global saved_time,status
