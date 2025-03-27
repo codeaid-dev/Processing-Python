@@ -5,8 +5,10 @@ class Bullet:
         ellipse(self.x,self.y,10,10)
     def is_hit(self,ship):
         if ship.type == 'p':
-            if self.x+5 > ship.x and self.x-5 < ship.x+50 \
-                and self.y+5 > ship.y and self.y-5 < ship.y+10:
+            if self.x+5 > ship.x \
+                and self.x-5 < ship.x+50 \
+                and self.y+5 > ship.y \
+                and self.y-5 < ship.y+10:
                 return True
         if ship.type == 'e':
             dis = dist(self.x,self.y,ship.x,ship.y)
