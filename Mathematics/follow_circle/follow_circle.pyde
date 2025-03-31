@@ -1,10 +1,6 @@
-centerX,centerY=0,0
 followX,followY=450,450
 def setup():
-    global centerX,centerY
     size(500,500)
-    centerX = width/2
-    centerY = height/2
 
 def draw():
     background(255)
@@ -34,9 +30,9 @@ def showDegrees(angle):
     textSize(30)
     textAlign(CENTER)
     text(str(ceil(degrees(angle)))+" degrees",
-         centerX,height-100)
+         width/2,height-100)
     text(str(int(angle*100)/100.0)+" radians",
-         centerX,height-50)
+         width/2,height-50)
 
 def followCircle():
     global followX,followY
