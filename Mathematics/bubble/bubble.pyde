@@ -34,7 +34,7 @@ def draw():
                     ens.remove(en)
                     #en.move = False
                     #en.color = color(255,0)
-                    other.size += en.size/5
+                    other.size = sqrt(en.size * en.size + other.size * other.size)
                     if other.x < other.size/2:
                         other.x = other.size/2
                     if other.x > width-other.size/2:
@@ -55,11 +55,13 @@ def mousePressed():
             #en.color = color(255,0)
             for n in range(0,360,30):
                 new_en = Circle()
-                new_en.size = en.size/5
-                new_en.x = en.x
-                new_en.y = en.y
                 new_en.angle = n
-                new_en.speed = 1
+                new_en.x = en.x + en.size/2 * cos(n*PI/180)
+                new_en.y = en.y + en.size/2 * sin(n*PI/180)
+                nextX = en.x + en.size/2 * cos((n+30)*PI/180)
+                nextY = en.y + en.size/2 * sin((n+30)*PI/180)
+                new_en.size = dist(new_en.x,new_en.y,nextX,nextY)
+                new_en.speed = 1.5
                 new_en.color = color(random(255),random(255),random(255))
                 new_en.move = True
                 ens.append(new_en)
