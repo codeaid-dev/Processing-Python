@@ -24,7 +24,7 @@ def setup():
 
 def draw():
     background(255)
-    if len(drops) <= 100:
+    if len(drops) < 100:
         drops.append(Drop())
     for d in drops:
         d.move()
