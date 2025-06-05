@@ -5,6 +5,7 @@ gameOver = False
 clear = False
 scale = 1.5
 count = 400*scale
+up, down, left, right = False,False,False,False
 
 def setup():
     global x, y, w, h
@@ -52,13 +53,13 @@ def draw():
         return
 
     if keyPressed:
-        if keyCode == UP:
+        if up:
             sy -= 0.1
-        if keyCode == DOWN:
+        if down:
             sy += 0.1
-        if keyCode == LEFT:
+        if left:
             sx -= 0.1
-        if keyCode == RIGHT:
+        if right:
             sx += 0.1
 
     sx *= 0.98
@@ -78,3 +79,25 @@ def draw():
 
     if x >= 515*scale+w/2 and x <= 565*scale-w/2 and y >= 50*scale+w/2 and y <= 100*scale-w/2:
       clear = True
+
+def keyPressed():
+    global up, down, left, right
+    if keyCode == UP:
+        up = True
+    if keyCode == DOWN:
+        down = True
+    if keyCode == LEFT:
+        left = True
+    if keyCode == RIGHT:
+        right = True
+
+def keyReleased():
+    global up, down, left, right
+    if keyCode == UP:
+        up = False
+    if keyCode == DOWN:
+        down = False
+    if keyCode == LEFT:
+        left = False
+    if keyCode == RIGHT:
+        right = False

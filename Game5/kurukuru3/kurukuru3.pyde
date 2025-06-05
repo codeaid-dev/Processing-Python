@@ -24,6 +24,7 @@ class Bullet:
 
 player = None
 shooting = False
+left, right, space = False, False, False
 monsters = []
 score = 0
 def setup():
@@ -67,13 +68,15 @@ def draw():
         return
 
     if keyPressed:
-        if keyCode == LEFT:
+        if left:
             player.angle -= 3
-        if keyCode == RIGHT:
+        if right:
             player.angle += 3
-        if key == ' ' and shooting == False:
+        if space and shooting == False:
             player.shot(5)
             shooting = True
+        if not space and shooting:
+            shooting = False
     else:
         shooting = False
 
@@ -120,3 +123,21 @@ def draw():
                 m.y = height/2 + m.distance*sin(radians(m.angle))
                 m.speed = random(1,4)
                 m.apear = False
+
+def keyPressed():
+    global left, right, space
+    if key == ' ':
+        space = True
+    if keyCode == LEFT:
+        left = True
+    if keyCode == RIGHT:
+        right = True
+
+def keyReleased():
+    global left, right, space
+    if key == ' ':
+        space = False
+    if keyCode == LEFT:
+        left = False
+    if keyCode == RIGHT:
+        right = False

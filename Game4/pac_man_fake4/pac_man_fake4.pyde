@@ -1,4 +1,5 @@
 x,y = 300,300
+up,down,left,right = False,False,False,False
 dir = 1 #1:RIGHT,2:DOWN,3:LEFT,4:UP
 open_mouse = True #True:open mouse,False:close mouse
 move = False #True:moving,False:stoping
@@ -12,16 +13,16 @@ def draw():
     background(0)
     if keyPressed:
         move = True
-        if keyCode == UP:
+        if up:
             y -= 5
             dir = 4
-        if keyCode == DOWN:
+        if down:
             y += 5
             dir = 2
-        if keyCode == LEFT:
+        if left:
             x -= 5
             dir = 3
-        if keyCode == RIGHT:
+        if right:
             x += 5
             dir = 1
     else:
@@ -51,3 +52,25 @@ def draw():
             arc(x,y,30,30,radians(315),radians(585))
     else:
         ellipse(x,y,30,30)
+
+def keyPressed():
+    global up,down,left,right
+    if keyCode == UP:
+        up = True
+    if keyCode == DOWN:
+        down = True
+    if keyCode == LEFT:
+        left = True
+    if keyCode == RIGHT:
+        right = True
+
+def keyReleased():
+    global up,down,left,right
+    if keyCode == UP:
+        up = False
+    if keyCode == DOWN:
+        down = False
+    if keyCode == LEFT:
+        left = False
+    if keyCode == RIGHT:
+        right = False

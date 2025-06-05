@@ -1,4 +1,5 @@
 x,y,s = 300,200,30
+up, down, left, right = False,False,False,False
 dx,dy = 0,0
 hx,hy,hs = [],[],[]
 hc = 5
@@ -27,14 +28,14 @@ def draw():
         dy += 0.3
 
     if keyPressed:
-        if keyCode == UP and dy == 0:
+        if up and dy == 0:
             dy = -12
-        if keyCode == DOWN:
+        if down:
             dy += 2
-        if keyCode == LEFT:
-            dx -= 0.3
-        if keyCode == RIGHT:
-            dx += 0.3
+        if left:
+            dx -= 0.1
+        if right:
+            dx += 0.1
 
     dx *= 0.98
     x += dx
@@ -57,3 +58,25 @@ def hit():
         dst = dist(x,y,hx[i],hy[i])
         if dst < (s+hs[i])/2:
             status[i] = 1
+
+def keyPressed():
+    global up, down, left, right
+    if keyCode == UP:
+        up = True
+    if keyCode == DOWN:
+        down = True
+    if keyCode == LEFT:
+        left = True
+    if keyCode == RIGHT:
+        right = True
+
+def keyReleased():
+    global up, down, left, right
+    if keyCode == UP:
+        up = False
+    if keyCode == DOWN:
+        down = False
+    if keyCode == LEFT:
+        left = False
+    if keyCode == RIGHT:
+        right = False

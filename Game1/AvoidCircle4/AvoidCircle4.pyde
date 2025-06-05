@@ -1,4 +1,5 @@
 x,y,s = 250,400,50
+up, down, left, right = False,False,False,False
 block_x,block_y,block_size = [],[],[]
 over = False
 def setup():
@@ -18,14 +19,14 @@ def draw():
     ellipse(x,y,s,s)
 
     if keyPressed:
-        if keyCode == RIGHT:
-            x += 3
-        if keyCode == LEFT:
-            x -= 3
-        if keyCode == UP:
+        if up:
             y -= 3
-        if keyCode == DOWN:
+        if down:
             y += 3
+        if left:
+            x -= 3
+        if right:
+            x += 3
     
     if x < s/2:
         x += 3
@@ -49,3 +50,25 @@ def draw():
         dst = dist(x,y,block_x[i],block_y[i])
         if dst < (block_size[i]+s)/2:
             over = True
+
+def keyPressed():
+    global up, down, left, right
+    if keyCode == UP:
+        up = True
+    if keyCode == DOWN:
+        down = True
+    if keyCode == LEFT:
+        left = True
+    if keyCode == RIGHT:
+        right = True
+
+def keyReleased():
+    global up, down, left, right
+    if keyCode == UP:
+        up = False
+    if keyCode == DOWN:
+        down = False
+    if keyCode == LEFT:
+        left = False
+    if keyCode == RIGHT:
+        right = False

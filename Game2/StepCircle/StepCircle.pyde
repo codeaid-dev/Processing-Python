@@ -4,6 +4,7 @@ sx, sy = 0, 0
 over = False
 clear = False
 count = 400
+up, left, right = False,False,False
 
 def setup():
     global x, y, g, w, h
@@ -57,11 +58,11 @@ def draw():
         g += 0.1
 
     if keyPressed:
-        if keyCode == UP and g == 0:
+        if up and g == 0:
             sy -= 7
-        if keyCode == LEFT:
+        if left:
             sx -= 0.1
-        if keyCode == RIGHT:
+        if right:
             sx += 0.1
 
     sx *= 0.98
@@ -72,3 +73,21 @@ def draw():
 
     if x < w/2 or x > (width - w/2) or y < h/2 or y > (height - h/2):
         over = True
+
+def keyPressed():
+    global up, left, right
+    if keyCode == UP:
+        up = True
+    if keyCode == LEFT:
+        left = True
+    if keyCode == RIGHT:
+        right = True
+
+def keyReleased():
+    global up, left, right
+    if keyCode == UP:
+        up = False
+    if keyCode == LEFT:
+        left = False
+    if keyCode == RIGHT:
+        right = False

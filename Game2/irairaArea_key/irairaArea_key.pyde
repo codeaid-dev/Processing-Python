@@ -19,6 +19,7 @@ player = None
 walls = []
 over,clear = False,False
 timer = 400
+up, down, left, right = False,False,False,False
 def setup():
     global player
     size(600,400)
@@ -53,13 +54,13 @@ def draw():
         return
 
     if keyPressed:
-        if keyCode == UP:
+        if up:
             player.dy -= 0.1
-        if keyCode == DOWN:
+        if down:
             player.dy += 0.1
-        if keyCode == LEFT:
+        if left:
             player.dx -= 0.1
-        if keyCode == RIGHT:
+        if right:
             player.dx += 0.1
 
     player.dx *= 0.98
@@ -79,3 +80,25 @@ def draw():
     timer -= 0.6
     if timer < 0:
         over = True
+
+def keyPressed():
+    global up, down, left, right
+    if keyCode == UP:
+        up = True
+    if keyCode == DOWN:
+        down = True
+    if keyCode == LEFT:
+        left = True
+    if keyCode == RIGHT:
+        right = True
+
+def keyReleased():
+    global up, down, left, right
+    if keyCode == UP:
+        up = False
+    if keyCode == DOWN:
+        down = False
+    if keyCode == LEFT:
+        left = False
+    if keyCode == RIGHT:
+        right = False
