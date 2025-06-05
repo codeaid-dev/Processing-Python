@@ -15,6 +15,7 @@ class Sprite:
         image(self.img,self.x,self.y)
 
 player = None
+up,down,left,right = False,False,False,False
 def setup():
     global player
     size(600,800)
@@ -24,13 +25,35 @@ def setup():
 def draw():
     background(0)
     if keyPressed:
-        if keyCode == UP:
+        if up:
             player.dy -= 1
-        if keyCode == DOWN:
+        if down:
             player.dy += 1
-        if keyCode == LEFT:
+        if left:
             player.dx -= 1
-        if keyCode == RIGHT:
+        if right:
             player.dx += 1
     player.move(0.95)
     player.draw()
+
+def keyPressed():
+    global up,down,left,right
+    if keyCode == UP:
+        up = True
+    if keyCode == DOWN:
+        down = True
+    if keyCode == LEFT:
+        left = True
+    if keyCode == RIGHT:
+        right = True
+
+def keyReleased():
+    global up,down,left,right
+    if keyCode == UP:
+        up = False
+    if keyCode == DOWN:
+        down = False
+    if keyCode == LEFT:
+        left = False
+    if keyCode == RIGHT:
+        right = False

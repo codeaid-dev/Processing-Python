@@ -19,6 +19,7 @@ class Sprite:
         return distance < self.radius+sprite.radius
 
 player = None
+up,down,left,right = False,False,False,False
 enemies = []
 bullets = []
 shoot = False
@@ -35,15 +36,14 @@ def draw():
         enemies.append(Sprite(random(width),random(-500,-100),0,5,"ufo.png"))
 
     if keyPressed:
-        if keyCode == UP:
+        if up:
             player.dy -= 1
-        if keyCode == DOWN:
+        if down:
             player.dy += 1
-        if keyCode == LEFT:
+        if left:
             player.dx -= 1
-        if keyCode == RIGHT:
+        if right:
             player.dx += 1
-            shoot = True
         if key == ' ' and shoot == False:
             b = Sprite(player.x,player.y,0,-5,"missiles.png")
             bullets.append(b)
@@ -69,3 +69,25 @@ def draw():
             continue
         b.move(1)
         b.draw()
+
+def keyPressed():
+    global up,down,left,right
+    if keyCode == UP:
+        up = True
+    if keyCode == DOWN:
+        down = True
+    if keyCode == LEFT:
+        left = True
+    if keyCode == RIGHT:
+        right = True
+
+def keyReleased():
+    global up,down,left,right
+    if keyCode == UP:
+        up = False
+    if keyCode == DOWN:
+        down = False
+    if keyCode == LEFT:
+        left = False
+    if keyCode == RIGHT:
+        right = False
