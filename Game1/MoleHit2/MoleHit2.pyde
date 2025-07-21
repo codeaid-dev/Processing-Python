@@ -20,6 +20,6 @@ def draw():
 def mousePressed():
     global count,isShow
     dst = dist(mouseX,mouseY,width/2,height/2)
-    if dst < 25:
+    if dst < 25 and isShow:
         isShow = False
         count = int(random(120,150))

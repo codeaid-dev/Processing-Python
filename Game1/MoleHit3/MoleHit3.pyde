@@ -28,6 +28,6 @@ def mousePressed():
     global count,isShow
     for i in range(5):
         dst = dist(mouseX,mouseY,x[i],y[i])
-        if dst < 25:
+        if dst < 25 and isShow[i]:
             isShow[i] = False
             count[i] = int(random(120,150))
