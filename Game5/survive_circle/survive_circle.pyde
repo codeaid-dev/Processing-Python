@@ -60,7 +60,7 @@ def draw():
             return
         if c.available:
             c.draw(color(0,255,0))
-    
+
     for b in list(bullets):
         b.y -= 5
         for c in list(circles):
