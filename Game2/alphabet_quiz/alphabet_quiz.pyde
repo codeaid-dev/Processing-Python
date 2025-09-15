@@ -4,9 +4,9 @@ answer=''
 correct=''
 judge=False
 def setup():
-    global question,answer,correct
+    global question,correct
     size(500,200)
-    correct = ALPHABET[int(random(26))]
+    correct = ALPHABET[int(random(len(ALPHABET)))]
     for c in ALPHABET:
         if c == correct:
             continue
