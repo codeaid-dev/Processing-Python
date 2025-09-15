@@ -4,6 +4,7 @@ answer=''
 correct=''
 judge=False
 startTime=0
+finishTime=0
 def setup():
     global question,answer,correct,startTime
     size(500,200)
@@ -30,6 +31,7 @@ def draw():
         fill(255,0,0)
         if answer.upper() == correct:
             text('Correct!',width/2,height/2)
+            text('Finish Time: '+str(finishTime),width/2,height/2+50)
         else:
             text('Wrong...',width/2,height/2)
         return
@@ -41,10 +43,11 @@ def draw():
         text('10 seconds have passed!',width/2,height/2)
 
 def keyPressed():
-    global answer,judge
+    global answer,judge,finishTime
     if judge:
         return
     if key == ENTER:
         judge = True
+        finishTime = (millis()-startTime)/1000
     elif 'a'<=key<='z' or 'A'<=key<='Z':
         answer += key
