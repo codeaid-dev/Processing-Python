@@ -8,7 +8,7 @@ finishTime=0
 def setup():
     global question,answer,correct,startTime
     size(500,200)
-    correct = ALPHABET[int(random(26))]
+    correct = ALPHABET[int(random(len(ALPHABET)))]
     for c in ALPHABET:
         if c == correct:
             continue
