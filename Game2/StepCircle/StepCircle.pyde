@@ -21,15 +21,15 @@ def setup():
     g = 1
     s = 30
     for i in range(6):
-        sx = 10
-        sy = 350
+        s_x = 10
+        s_y = 350
         if i == 5:
             iro = color(255,0,0)
             pos = 'goal'
         else:
             iro = color(0,0,0)
             pos = 'step'
-        step = Step(sx+(i*100),sy-(i*50),50,iro,pos)
+        step = Step(s_x+(i*100),s_y-(i*50),50,iro,pos)
         steps.append(step)
 
 def draw():
@@ -68,8 +68,6 @@ def draw():
             break
     else:
         g += 0.1
-
-    print(x,y)
 
     if keyPressed:
         if up and g == 0:
