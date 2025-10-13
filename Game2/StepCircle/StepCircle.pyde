@@ -1,9 +1,16 @@
+class Step:
+    def __init__(self,x,y,length,iro,pos):
+        self.x = x
+        self.y = y
+        self.length = length
+        self.iro = iro
+        self.pos = pos
+steps = []
 x, y, g = 0, 0, 0
-w, h = 30, 30
+s = 30
 sx, sy = 0, 0
 over = False
 clear = False
-count = 400
 up, left, right = False,False,False
 
 def setup():
@@ -12,26 +19,32 @@ def setup():
     x = 40
     y = 40
     g = 1
-    w = 30
-    h = 30
+    s = 30
+    for i in range(6):
+        sx = 10
+        sy = 350
+        if i == 5:
+            iro = color(255,0,0)
+            pos = 'goal'
+        else:
+            iro = color(0,0,0)
+            pos = 'step'
+        step = Step(sx+(i*100),sy-(i*50),50,iro,pos)
+        steps.append(step)
 
 def draw():
-    global x, y, w, h, sx, sy, g, over, clear, count
+    global x, y, sx, sy, g, over, clear
     background(255)
 
     stroke(0)
     strokeWeight(6)
-    line(10, 350, 60, 350)
-    line(110, 300, 160, 300)
-    line(210, 250, 260, 250)
-    line(310, 200, 360, 200)
-    line(410, 150, 460, 150)
-    stroke(255, 0, 0)
-    line(510, 100, 560, 100)
+    for step in steps:
+        stroke(step.iro)
+        line(step.x, step.y, step.x+step.length, step.y)
 
     noStroke()
     fill(0)
-    ellipse(x, y, w, h)
+    ellipse(x, y, s, s)
 
     if over:
         textSize(50)
@@ -45,17 +58,18 @@ def draw():
         text("CLEAR", 300, 200)
         return
 
-    if 10 <= x <= 60 and 350 >= y >= 347-h/2 \
-        or 110 <= x <= 160 and 300 >= y >= 293-h/2 \
-        or 210 <= x <= 260 and 250 >= y >= 247-h/2 \
-        or 310 <= x <= 360 and 200 >= y >= 193-h/2 \
-        or 410 <= x <= 460 and 150 >= y >= 147-h/2:
-        g = 0
-    elif 510 <= x <= 560 and 100 >= y >= 93-h/2:
-        g = 0
-        clear = True
+    for step in steps:
+        if step.x <= x <= step.x+step.length and step.y >= y >= step.y-s/2:
+            y = step.y-s/2
+            g = 0
+            if step.pos == 'goal':
+                clear = True
+                return
+            break
     else:
         g += 0.1
+
+    print(x,y)
 
     if keyPressed:
         if up and g == 0:
@@ -71,7 +85,7 @@ def draw():
     y += sy
     y += g
 
-    if x < w/2 or x > (width - w/2) or y < h/2 or y > (height - h/2):
+    if x < s/2 or x > (width - s/2) or y < s/2 or y > (height - s/2):
         over = True
 
 def keyPressed():
