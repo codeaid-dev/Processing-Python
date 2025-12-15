@@ -5,12 +5,14 @@ circles = []
 complete = False
 over = False
 saved = 0
+TIMER = 20
+BALLS = 20
 def setup():
     global saved
     size(600,600)
     textAlign(CENTER)
     textSize(50)
-    for i in range(20):
+    for i in range(BALLS):
         c = Circle()
         c.x = random(25,width-25)
         c.y = random(height/2+25,height-25)
@@ -29,18 +31,18 @@ def draw():
         ellipse(c.x,c.y,50,50)
         if c.y < height/2:
             count += 1
-    if count >= 20:
+    if count >= BALLS:
         complete = True
 
     fill(255,0,0)
     passed = (millis() - saved)/1000
-    if (passed >= 20 and complete == False) or over:
+    if (passed >= TIMER and complete == False) or over:
         text('Time is up..',width/2,height/2)
         over = True
     elif complete:
         text('Finish!',width/2,height/2)
     else:
-        text(20-passed,width/2,height/2)
+        text(TIMER-passed,width/2,height/2)
 
 def mousePressed():
     for c in circles:
