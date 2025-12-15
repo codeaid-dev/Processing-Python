@@ -7,7 +7,7 @@ over = False
 saved = 0
 def setup():
     global saved
-    size(500,500)
+    size(600,600)
     textAlign(CENTER)
     textSize(50)
     for i in range(20):
