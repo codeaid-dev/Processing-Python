@@ -6,7 +6,7 @@ complete = False
 over = False
 saved = 0
 def setup():
-    global x,y,saved
+    global saved
     size(500,500)
     textAlign(CENTER)
     textSize(50)
