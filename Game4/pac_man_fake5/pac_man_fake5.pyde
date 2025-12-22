@@ -2,7 +2,6 @@ x,y = 300,300
 up,down,left,right = False,False,False,False
 dir = 1 #1:RIGHT,2:DOWN,3:LEFT,4:UP
 open_mouse = True #True:open mouse,False:close mouse
-move = False #True:moving,False:stoping
 
 class Snack:
     pass

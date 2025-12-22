@@ -3,7 +3,6 @@ up,down,left,right = False,False,False,False
 ex,ey = random(300),50
 dir = 1 #1:RIGHT,2:DOWN,3:LEFT,4:UP
 open_mouse = True #True:open mouse,False:close mouse
-move = False #True:moving,False:stoping
 over = False
 clear = False
 count = 0
