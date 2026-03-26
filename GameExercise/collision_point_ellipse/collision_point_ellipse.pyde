@@ -1,6 +1,6 @@
 x,y = 0,0 # マウスの座標
 cx,cy = 250,250 # 楕円の中心座標
-rx,ry = 100.0,200.0 # rx:楕円の横半径、ry:楕円の縦半径
+rw,rh = 100.0,200.0 # rw:楕円の横半径、rh:楕円の縦半径
 def setup():
     size(500, 500)
     noStroke()
@@ -11,10 +11,9 @@ def draw():
     y = mouseY
     dx = x - cx
     dy = y - cy
-    val = (dx*dx)/(rx*rx) + (dy*dy)/(ry*ry)
-    print(val)
+    val = (dx*dx)/(rw*rw) + (dy*dy)/(rh*rh)
     if val <= 1:
         fill(255, 0, 0)
     else:
         fill(0)
-    ellipse(cx, cy, rx*2, ry*2)
+    ellipse(cx, cy, rw*2, rh*2)
