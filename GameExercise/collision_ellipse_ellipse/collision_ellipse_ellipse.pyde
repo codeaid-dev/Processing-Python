@@ -37,7 +37,7 @@ def collision(e1, e2):
         # e1の境界点
         ex = e1.cx + e1.rw * cos(t)
         ey = e1.cy + e1.rh * sin(t)
-        
+
         # e2中心までの距離
         dx = ex - e2.cx
         dy = ey - e2.cy
