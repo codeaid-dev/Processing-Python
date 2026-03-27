@@ -41,7 +41,6 @@ def collision(e1, e2):
         # e2中心までの距離
         dx = ex - e2.cx
         dy = ey - e2.cy
-        dist2 = dx*dx + dy*dy
 
         # e2の中に入っているかチェック
         if (dx*dx)/(e2.rw*e2.rw) + (dy*dy)/(e2.rh*e2.rh) <= 1:
