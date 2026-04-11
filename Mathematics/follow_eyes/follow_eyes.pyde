@@ -4,7 +4,7 @@ def setup():
 def draw():
     background(255)
     noStroke()
-    fill(128,70,70)
+    fill(70,120,200)
     ellipse(width/2,height/2,width,height)
     leftX = width/2-100
     leftY = height/2
