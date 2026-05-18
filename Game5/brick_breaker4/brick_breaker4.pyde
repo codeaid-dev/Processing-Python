@@ -3,14 +3,24 @@ class Ball:
         self.x,self.y = width/2,height/2
         self.radius = 5
         self.speed = 5
-        self.angle = random(QUARTER_PI,HALF_PI+ QUARTER_PI)
+        # self.angle = random(QUARTER_PI,HALF_PI+ QUARTER_PI)
+        self.angle = (PI/4)+random(1)*(PI/2)
+        self.setAngle(random(45,135))
+    def setAngle(self,deg):
+        rad = deg * PI / 180
+        self.dx = self.speed * cos(rad)
+        self.dy = self.speed * sin(rad)
     def move(self):
-        self.x += self.speed*cos(self.angle)
-        self.y += self.speed*sin(self.angle)
+        self.x += self.dx
+        self.y += self.dy
+        # self.x += self.speed*cos(self.angle)
+        # self.y += self.speed*sin(self.angle)
         if self.x < self.radius or self.x > width-self.radius:
-            self.angle = PI-self.angle
+            self.dx *= -1
+            # self.angle = PI-self.angle
         if self.y < self.radius or self.y > height-self.radius:
-            self.angle *= -1
+            self.dy *= -1
+            # self.angle *= -1
     def draw(self):
         fill(255)
         ellipse(self.x,self.y,self.radius*2,self.radius*2)
@@ -89,16 +99,24 @@ def draw():
 
     if ball.collision(player):
         # 変換後の最小値+(変換後の範囲)*((指定した数値-変換前の最小値)/(変換前の範囲))
-        ball.angle = PI+PI*(ball.x-player.x)/player.w
+        center = player.x + player.w/2
+        hitPos = (ball.x - center) / (player.w/2) # -1 ~ 1
+        rad = hitPos * PI/3 # -60° ~ 60°
+        ball.dx = ball.speed * sin(rad)
+        ball.dy = -ball.speed * cos(rad)
+        ball.y = player.y - ball.radius
+        # ball.angle = PI+PI*(ball.x-player.x)/player.w
         #ball.angle = map(ball.x,player.x,player.x+player.w,PI,TWO_PI)
 
     for b in list(bricks):
         if ball.collision(b):
             if ball.y-ball.radius < b.y+b.h < ball.y+ball.radius or \
                 ball.y-ball.radius < b.y < ball.y+ball.radius:
-                ball.angle *= -1
+                ball.dy *= -1
+                # ball.angle *= -1
             else:
-                ball.angle = PI-ball.angle
+                ball.dx *= -1
+                # ball.angle = PI-ball.angle
             bricks.remove(b)
 
     if len(bricks) == 0:
