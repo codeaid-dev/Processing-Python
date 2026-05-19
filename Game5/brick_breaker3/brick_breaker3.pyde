@@ -1,9 +1,13 @@
 class Ball:
     def __init__(self):
-        self.x,self.y = 250,300
-        self.dx = random(-4,4)
-        self.dy = random(2,4)
+        self.x,self.y = 300,400
         self.s = 10
+        self.speed = 5
+        self.setAngle(random(45,135))
+    def setAngle(self, deg):
+        rad = deg * PI / 180
+        self.dx = self.speed * cos(rad)
+        self.dy = self.speed * sin(rad)
     def move(self):
         self.x += self.dx
         self.y += self.dy
@@ -47,13 +51,13 @@ bricks = []
 
 def setup():
     global player,ball
-    size(500,600)
+    size(600,800)
     ball = Ball()
-    player = Brick(mouseX-25,570,50,20)
+    player = Brick(mouseX-25,770,50,20)
     colorMode(HSB)
     for i in range(30):
-        x = 50+i%5*80
-        y = 50+i//5*30
+        x = 60+i%5*100
+        y = 40+i/5*50
         b = Brick(x,y,80,30)
         b.c = color(i//5*40,255,255)
         bricks.append(b)

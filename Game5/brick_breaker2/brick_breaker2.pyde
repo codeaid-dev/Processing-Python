@@ -1,16 +1,20 @@
 class Ball:
     def __init__(self):
-        self.x,self.y = 250,300
-        self.dx = random(-4,4)
-        self.dy = random(2,4)
+        self.x,self.y = 300,400
         self.s = 10
+        self.speed = 5
+        self.setAngle(random(45,135))
+    def setAngle(self, deg):
+        rad = deg * PI / 180
+        self.dx = self.speed * cos(rad)
+        self.dy = self.speed * sin(rad)
     def move(self):
         self.x += self.dx
         self.y += self.dy
         if self.x < self.s/2 or self.x > width-self.s/2:
             self.dx *= -1
         if self.y < self.s/2 or self.y > height-self.s/2:
-            self.dy *= -1
+            self.dy *= -1d
     def collision(self,brick):
         if self.x < brick.x:
             closestX = brick.x
@@ -46,9 +50,9 @@ mode = 'stop' # stop:stop, play:playing, over:gameover, clear:gameclear
 
 def setup():
     global player,ball
-    size(500,600)
+    size(600,800)
     ball = Ball()
-    player = Brick(mouseX-25,570,50,20)
+    player = Brick(mouseX-25,770,50,20)
 
 def draw():
     global mode

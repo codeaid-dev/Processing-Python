@@ -4,7 +4,7 @@ class Ball:
         self.radius = 5
         self.speed = 5
         # self.angle = random(QUARTER_PI,HALF_PI+ QUARTER_PI)
-        self.angle = (PI/4)+random(1)*(PI/2)
+        # self.angle = (PI/4)+random(1)*(PI/2)
         self.setAngle(random(45,135))
     def setAngle(self,deg):
         rad = deg * PI / 180
@@ -98,13 +98,13 @@ def draw():
         text('GAME CLEAR',width/2,height/2)
 
     if ball.collision(player):
-        # 変換後の最小値+(変換後の範囲)*((指定した数値-変換前の最小値)/(変換前の範囲))
         center = player.x + player.w/2
         hitPos = (ball.x - center) / (player.w/2) # -1 ~ 1
         rad = hitPos * PI/3 # -60° ~ 60°
         ball.dx = ball.speed * sin(rad)
         ball.dy = -ball.speed * cos(rad)
         ball.y = player.y - ball.radius
+        # 変換後の最小値+(変換後の範囲)*((指定した数値-変換前の最小値)/(変換前の範囲))
         # ball.angle = PI+PI*(ball.x-player.x)/player.w
         #ball.angle = map(ball.x,player.x,player.x+player.w,PI,TWO_PI)
 
