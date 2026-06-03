@@ -1,11 +1,15 @@
-num = 5
+p = 5
 def setup():
     size(500,500)
 
 def draw():
     background(255)
     fill(255,255,0)
-    star(width/2,height/2,100,40,num)
+    pushMatrix()
+    translate(width/2,height/2)
+    rotate(-90*PI/180)
+    star(0,0,100,40,p)
+    popMatrix()
 
 def star(x,y,radius1,radius2,n):
     angle = TWO_PI/(n*2)
@@ -21,6 +25,6 @@ def star(x,y,radius1,radius2,n):
     endShape(CLOSE)
 
 def keyPressed():
-    global num
+    global p
     if 49 <= keyCode <= 57:
-        num = keyCode-48
+        p = keyCode-48
