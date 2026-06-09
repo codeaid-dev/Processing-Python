@@ -1,21 +1,24 @@
-r=0
-targets = [[random(50,450),random(50,450),random(10,100)],
-           [random(50,450),random(50,450),random(10,100)],
-           [random(50,450),random(50,450),random(10,100)]]
+angle=0
+targets = []
 def setup():
     size(500,500)
+    for _ in range(3):
+        x = width/2 + random(50,width/2-50) * cos(random(TWO_PI))
+        y = height/2 + random(50,height/2-50) * sin(random(TWO_PI))
+        diameter = random(25,100)
+        targets.append([x,y,diameter])
 
 def draw():
-    global r
+    global angle
     noStroke()
     fill(0,10)
     rect(0,0,width,height)
     stroke(0,255,0)
-    x = width/2 + width/2 * cos(radians(r))
-    y = height/2 + height/2 * sin(radians(r))
+    x = width/2 + width/2 * cos(radians(angle%360))
+    y = height/2 + height/2 * sin(radians(angle%360))
     strokeWeight(5)
     line(x,y,width/2,height/2)
-    r += 1
+    angle += 1
     for t in targets:
         if collision(x,y,width/2,height/2,t[0],t[1],t[2]/2):
             fill(0,255,0)

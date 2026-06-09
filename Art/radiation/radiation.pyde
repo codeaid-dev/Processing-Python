@@ -21,12 +21,10 @@ def draw():
     for i,c in enumerate(ens):
         c.x = width/2+r*cos(radians(i*20))
         c.y = height/2+r*sin(radians(i*20))
-#        c.x += cos(radians(i*20))
-#        c.y += sin(radians(i*20))
         ellipse(c.x,c.y,10,10)
-    #stroke(255,128)
-    #noFill()
-    #ellipse(width/2,height/2,r*2,r*2)
-    if r > width-5 or r < 0:
+        # c.x += cos(radians(i*20))
+        # c.y += sin(radians(i*20))
+        # ellipse(c.x,c.y,10,10)
+    if r > width/2-5 or r < 0:
         speed *= -1
         
