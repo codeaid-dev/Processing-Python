@@ -9,8 +9,16 @@ def setup():
     for i in range(30):
         en = Circle()
         en.size = random(30,50)
-        en.x = random(en.size/2,width-en.size/2)
-        en.y = random(en.size/2,height-en.size/2)
+        ok = False
+        while not ok:
+            en.x = random(en.size/2,width-en.size/2)
+            en.y = random(en.size/2,height-en.size/2)
+            ok = True
+            for other in ens:
+                dst = dist(en.x,en.y,other.x,other.y)
+                if dst < en.size/2+other.size/2:
+                    ok = False
+                    break
         en.angle = random(360)
         en.speed = random(2,6)
         en.color = color(random(255),random(255),random(255))
