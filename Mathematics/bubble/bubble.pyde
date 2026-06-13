@@ -9,8 +9,16 @@ def setup():
     for i in range(100):
         en = Circle()
         en.size = random(30,50)
-        en.x = random(en.size/2,width-en.size/2)
-        en.y = random(en.size/2,height-en.size/2)
+        ok = False
+        while not ok:
+            en.x = random(en.size/2,width-en.size/2)
+            en.y = random(en.size/2,height-en.size/2)
+            ok = True
+            for other in ens:
+                dst = dist(en.x,en.y,other.x,other.y)
+                if dst < en.size/2+other.size/2:
+                    ok = False
+                    break
         en.angle = random(360)
         en.speed = random(1,3)
         en.color = color(random(255),random(255),random(255))
@@ -24,8 +32,16 @@ def draw():
             en.y += en.speed * sin(en.angle*PI/180)
             if en.x < en.size/2 or en.x > width-en.size/2:
                 en.angle = 180-en.angle
+                if en.x < en.size/2:
+                    en.x = en.size/2
+                if en.x > width-en.size/2:
+                    en.x = width-en.size/2
             if en.y < en.size/2 or en.y > height-en.size/2:
                 en.angle *= -1
+                if en.y < en.size/2:
+                    en.y = en.size/2
+                if en.y > height-en.size/2:
+                    en.y = height-en.size/2
         for other in ens:
             if en == other:
                 continue
