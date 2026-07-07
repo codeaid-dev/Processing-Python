@@ -6,7 +6,7 @@ def setup():
     size(500,500)
 
 def draw():
-    global y,speed, gravity
+    global y,speed
     background(255)
     fill(0)
     noStroke()
