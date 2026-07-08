@@ -26,11 +26,9 @@ def draw():
         dy += gravity
         if y>=height-25:
             y = height-25
-            dx *= 0.8
-            print(dy)
+            dx *= 0.98
             if abs(dy) < 1.5:
                 dy = 0
-                # dx = 0
                 flying = False
                 if abs(dx) < 0.1:
                     dx = 0
