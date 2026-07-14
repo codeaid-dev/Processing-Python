@@ -22,7 +22,7 @@ time = 0
 def setup():
     global player
     size(600,400)
-    player = Circle(60,60,30)
+    player = Circle(67,15,30)
     goal = int(random(54))
     for i in range(54):
         x = i%9
@@ -54,12 +54,23 @@ def draw():
         return
     time = frameCount/60
 
-    player.x = mouseX
-    player.y = mouseY
-
     for w in walls:
         if w.is_hit(player):
             if w.goal:
                 clear = True
             else:
                 over = True
+
+playing = False
+def mouseMoved():
+    global playing
+    if not playing:
+        if dist(mouseX,mouseY,player.x,player.y) <= 15:
+            playing = True
+        return
+    if mouseX > player.s/2 and \
+      mouseX < width-player.s/2 and \
+      mouseY > player.s/2 and \
+      mouseY < height-player.s/2:
+        player.x = mouseX
+        player.y = mouseY

@@ -13,7 +13,7 @@ walls = []
 def setup():
     global player
     size(600,400)
-    player = Circle(60,60,30)
+    player = Circle(67,15,30)
     for i in range(54):
         x = i%9
         y = i/9
@@ -26,5 +26,11 @@ def draw():
     for w in walls:
         w.draw(color(255,0,0))
     player.draw(color(0))
-    player.x = mouseX
-    player.y = mouseY
+
+def mouseMoved():
+    if mouseX > player.s/2 and \
+      mouseX < width-player.s/2 and \
+      mouseY > player.s/2 and \
+      mouseY < height-player.s/2:
+        player.x = mouseX
+        player.y = mouseY

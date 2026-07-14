@@ -12,7 +12,7 @@ player = None
 def setup():
     global player
     size(600,400)
-    player = Circle(60,60,30)
+    player = Circle(67,15,30)
 
 def draw():
     background(255)
