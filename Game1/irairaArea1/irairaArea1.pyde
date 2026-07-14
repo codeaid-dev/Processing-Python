@@ -4,7 +4,7 @@ class Circle:
         self.y = y
         self.s = s
 
-    def display(self,c):
+    def draw(self,c):
         fill(c)
         ellipse(self.x,self.y,self.s,self.s)
 
@@ -17,4 +17,4 @@ def setup():
 def draw():
     background(255)
     noStroke()
-    player.display(color(0))
+    player.draw(color(0))

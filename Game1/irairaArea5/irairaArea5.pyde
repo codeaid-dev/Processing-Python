@@ -5,7 +5,7 @@ class Circle:
         self.s = s
         self.goal = False
 
-    def display(self,c):
+    def draw(self,c):
         fill(c)
         ellipse(self.x,self.y,self.s,self.s)
 
@@ -36,10 +36,10 @@ def draw():
     noStroke()
     for w in walls:
         if w.goal:
-            w.display(color(0,0,255))
+            w.draw(color(0,0,255))
         else:
-            w.display(color(255,0,0))
-    player.display(color(0))
+            w.draw(color(255,0,0))
+    player.draw(color(0))
     textSize(50)
     textAlign(CENTER)
     if over:

@@ -4,7 +4,7 @@ class Circle:
         self.y = y
         self.s = s
 
-    def display(self,c):
+    def draw(self,c):
         fill(c)
         ellipse(self.x,self.y,self.s,self.s)
 
@@ -24,7 +24,7 @@ def draw():
     background(255)
     noStroke()
     for w in walls:
-        w.display(color(255,0,0))
-    player.display(color(0))
+        w.draw(color(255,0,0))
+    player.draw(color(0))
     player.x = mouseX
     player.y = mouseY
