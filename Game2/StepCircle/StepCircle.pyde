@@ -1,46 +1,45 @@
-class Step:
-    def __init__(self,x,y,length,iro,pos):
+class Line:
+    def __init__(self,x,y,length):
         self.x = x
         self.y = y
         self.length = length
-        self.iro = iro
-        self.pos = pos
-steps = []
-x, y, g = 0, 0, 0
+        self.goal = False
+    def draw(self):
+        if self.goal:
+            stroke(255,0,0)
+        else:
+            stroke(0)
+        strokeWeight(6)
+        line(self.x,
+             self.y,
+             self.x+self.length,
+             self.y)
+    def is_hit(self,x,y,radius):
+        return self.x <= x <= self.x+self.length and \
+        self.y >= y >= self.y-radius
+lines = []
+x, y = 40, 40
 s = 30
-sx, sy = 0, 0
+dx, dy = 0, 0
 over = False
 clear = False
 up, left, right = False,False,False
+onGround = False
 
 def setup():
-    global x, y, g, w, h
     size(600, 400)
-    x = 40
-    y = 40
-    g = 1
-    s = 30
     for i in range(6):
-        s_x = 10
-        s_y = 350
+        l = Line(i*100+10,350-i*50,50)
         if i == 5:
-            iro = color(255,0,0)
-            pos = 'goal'
-        else:
-            iro = color(0,0,0)
-            pos = 'step'
-        step = Step(s_x+(i*100),s_y-(i*50),50,iro,pos)
-        steps.append(step)
+            l.goal = True
+        lines.append(l)
 
 def draw():
-    global x, y, sx, sy, g, over, clear
+    global x, y, dx, dy, over, clear, onGround
     background(255)
 
-    stroke(0)
-    strokeWeight(6)
-    for step in steps:
-        stroke(step.iro)
-        line(step.x, step.y, step.x+step.length, step.y)
+    for l in lines:
+        l.draw()
 
     noStroke()
     fill(0)
@@ -58,32 +57,31 @@ def draw():
         text("CLEAR", 300, 200)
         return
 
-    for step in steps:
-        if step.x <= x <= step.x+step.length and step.y >= y >= step.y-s/2:
-            y = step.y-s/2
-            g = 0
-            if step.pos == 'goal':
+    onGround = False
+    for l in lines:
+        if l.is_hit(x,y,s/2):
+            dy = 0
+            if l.goal:
                 clear = True
-                return
+            onGround = True
             break
-    else:
-        g += 0.1
 
     if keyPressed:
-        if up and g == 0:
-            sy -= 7
+        if up and dy == 0:
+            dy -= 7
         if left:
-            sx -= 0.1
+            dx -= 0.1
         if right:
-            sx += 0.1
+            dx += 0.1
 
-    sx *= 0.98
-    sy *= 0.98
-    x += sx
-    y += sy
-    y += g
+    dx *= 0.98
+    dy *= 0.98
+    x += dx
+    y += dy
 
-    if x < s/2 or x > (width - s/2) or y < s/2 or y > (height - s/2):
+    if not onGround:
+        dy += 0.3
+    if y > (height - s/2):
         over = True
 
 def keyPressed():
