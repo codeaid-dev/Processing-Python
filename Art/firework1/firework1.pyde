@@ -40,7 +40,7 @@ class Firework:
             self.fireworkColor = color(50, 255, 100) # 緑
         else:
             self.fireworkColor = color(220, 80, 255) # 紫
-    
+
     def update(self):
         # 打ち上げ中
         if not self.exploded:
@@ -52,12 +52,15 @@ class Firework:
                 self.exploded = True
                 # 火花を生成
                 for i in range(150):
-                    self.particles.append(Particle(self.x,self.y,self.fireworkColor))
+                    self.particles.append(
+                        Particle(self.x,
+                            self.y,
+                            self.fireworkColor))
         # 爆発後
         else:
             for p in self.particles:
                 p.update()
-    
+
     def display(self):
         # 打ち上げ中
         if not self.exploded:
@@ -68,7 +71,7 @@ class Firework:
         else:
             for p in self.particles:
                 p.display()
-    
+
     def finished(self):
         if not self.exploded:
             return False
@@ -91,7 +94,7 @@ class Particle:
         self.vx = cos(angle) * speed
         self.vy = sin(angle) * speed
         self.life = 255
-    
+
     def update(self):
         self.x += self.vx
         self.y += self.vy
@@ -102,11 +105,11 @@ class Particle:
         self.vy *= 0.99
         # 徐々に消える
         self.life -= 2
-    
+
     def display(self):
         noStroke()
         fill(self.c, self.life)
         ellipse(self.x, self.y, 4, 4)
-    
+
     def finished(self):
         return self.life <= 0
